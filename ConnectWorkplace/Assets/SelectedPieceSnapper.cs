@@ -15,6 +15,8 @@ public class SelectedPieceSnapper : MonoBehaviour
     [SerializeField]
     private DraggablePiece currentPiece;
 
+    private DraggablePiece hoveOverPiece;
+
     private bool snapping;
 
     void Start()
@@ -26,9 +28,20 @@ public class SelectedPieceSnapper : MonoBehaviour
     {
         RefreshMousePosition();
 
-        if (currentPiece == null || !currentPiece.isDragging)
+        if (hoveOverPiece == null)
         {
             LookForNewObject();
+        }
+
+        if (hoveOverPiece != null)
+        {
+            if (hoveOverPiece.isDragging)
+                currentPiece = hoveOverPiece;
+            else
+            {
+                hoveOverPiece = null;
+                currentPiece = null;
+            }
         }
 
         if(!snapping)
@@ -63,7 +76,7 @@ public class SelectedPieceSnapper : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
-            currentPiece = hit.collider.GetComponent<DraggablePiece>();
+            hoveOverPiece = hit.collider.GetComponent<DraggablePiece>();
         }
     }
 
