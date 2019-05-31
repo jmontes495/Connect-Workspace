@@ -14,7 +14,15 @@ public class DraggablePiece : MonoBehaviour
     {
         myTransform = transform;
         initialPosition = myTransform.position;
-    } 
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            myTransform.Rotate(new Vector3(0f,0f,90f));
+        }
+    }
 
     private void OnMouseDown()
     {
