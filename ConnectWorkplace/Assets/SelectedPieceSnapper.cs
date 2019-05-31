@@ -56,6 +56,8 @@ public class SelectedPieceSnapper : MonoBehaviour
         currentSnapPosition = other.gameObject.transform.position;
         currentSnapPosition.z = -5;
         snapping = true;
+		if (currentPiece != null)
+			currentPiece.ChangeInitialPosition(currentSnapPosition);
     }
 
     private void OnTriggerExit(Collider other)
@@ -83,7 +85,7 @@ public class SelectedPieceSnapper : MonoBehaviour
     private void DetermineCurrentPieceFate()
     {
         if (currentPiece.isDragging)
-            currentPiece.transform.position = currentSnapPosition;
+			currentPiece.myTransform.position = currentSnapPosition;
         else if (!currentPiece.isDragging && !snapping)
             currentPiece.CancelSelection();
         else if (!currentPiece.isDragging && snapping)
