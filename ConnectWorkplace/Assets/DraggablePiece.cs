@@ -6,26 +6,33 @@ public class DraggablePiece : MonoBehaviour
 {
     public bool isDragging;
 
-    public bool isSnapping;
-
     private Transform myTransform;
+
+    private Vector3 initialPosition;
 
     private void Start()
     {
         myTransform = transform;
+        initialPosition = myTransform.position;
     } 
 
     private void OnMouseDown()
     {
-        Debug.LogError("Entra");
-
         isDragging = true;
     }
 
     private void OnMouseUp()
     {
-        Debug.LogError("Sale");
-
         isDragging = false;
-    }    
+    }
+
+    public void ChangeInitialPosition(Vector3 newPosition)
+    {
+        initialPosition = newPosition;
+    }
+
+    public void CancelSelection()
+    {
+        myTransform.position = initialPosition;
+    }
 }

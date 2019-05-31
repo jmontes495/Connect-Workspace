@@ -13,7 +13,7 @@ public class SelectedPieceSnapper : MonoBehaviour
     RaycastHit hit;
 
     [SerializeField]
-    private DraggablePiece currentObject;
+    private DraggablePiece currentPiece;
 
     private bool snapping;
 
@@ -24,27 +24,24 @@ public class SelectedPieceSnapper : MonoBehaviour
 
     private void Update()
     {
-        Vector3 mouseposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mouseposition.z = 0;
-        myTransform.position = mouseposition;
+        RefreshMousePosition();
 
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        if (currentPiece == null || !currentPiece.isDragging)
         {
-            currentObject = hit.collider.GetComponent<DraggablePiece>();
+            LookForNewObject();
         }
 
         if(!snapping)
             currentSnapPosition = myTransform.position;
 
-        if (currentObject != null && currentObject.isDragging)
-            currentObject.transform.position = currentSnapPosition;
+        if(currentPiece != null)
+            DetermineCurrentPieceFate();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         currentSnapPosition = other.gameObject.transform.position;
-        currentSnapPosition.z = 0;
+        currentSnapPosition.z = -5;
         snapping = true;
     }
 
@@ -52,5 +49,34 @@ public class SelectedPieceSnapper : MonoBehaviour
     {
         currentSnapPosition = myTransform.position;
         snapping = false;
+    }
+
+    private void RefreshMousePosition()
+    {
+        Vector3 mouseposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseposition.z = 0;
+        myTransform.position = mouseposition;
+    }
+
+    private void LookForNewObject()
+    {
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            currentPiece = hit.collider.GetComponent<DraggablePiece>();
+        }
+    }
+
+    private void DetermineCurrentPieceFate()
+    {
+        if (currentPiece.isDragging)
+            currentPiece.transform.position = currentSnapPosition;
+        else if (!currentPiece.isDragging && !snapping)
+            currentPiece.CancelSelection();
+        else if (!currentPiece.isDragging && snapping)
+        {
+            currentPiece.ChangeInitialPosition(currentSnapPosition);
+            currentPiece.CancelSelection();
+        }
     }
 }
