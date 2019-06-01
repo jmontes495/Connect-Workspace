@@ -11,6 +11,9 @@ public class LongLegs : PersonalTrait
 
     public override void AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
+        if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
+            return;
+
         if (CheckIfAffectingPosition(theirPosition))
         {
             affectee.ReduceProductivityBy(10f);

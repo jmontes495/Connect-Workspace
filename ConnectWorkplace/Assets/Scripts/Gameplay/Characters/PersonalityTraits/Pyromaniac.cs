@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stretcher : PersonalTrait
+public class Pyromaniac : PersonalTrait
 {
     private void Start()
     {
-        traitType = PersonalityTrait.TheStretcher;
+        traitType = PersonalityTrait.Pyromaniac;
     }
 
     public override void AffectOther(PersonalTrait affectee, GridPosition theirPosition)
@@ -14,10 +14,15 @@ public class Stretcher : PersonalTrait
         if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
             return;
 
-        if (CheckIfAffectingPosition(theirPosition) && (affectee.GetTraitType() == PersonalityTrait.Otaku || affectee.GetTraitType() == PersonalityTrait.PaperFolder || affectee.GetTraitType() == PersonalityTrait.Thirstee))
+        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.PaperFolder)
         {
             affectee.ReduceProductivityBy(10f);
-            Debug.LogError(gameObject.name + " knocked down the stuff of " + affectee.gameObject.name);
+            Debug.LogError(gameObject.name + " almost burned the figurines of " + affectee.gameObject.name);
+        }
+        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.Smoker)
+        {
+            affectee.IncreaseProductivityBy(10f);
+            Debug.LogError(gameObject.name + " lit the cigarretes of " + affectee.gameObject.name);
         }
 
     }

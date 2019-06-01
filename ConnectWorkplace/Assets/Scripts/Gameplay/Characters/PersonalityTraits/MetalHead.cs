@@ -11,7 +11,14 @@ public class MetalHead : PersonalTrait
 
     public override void AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        // Not necesarrilly affects others with anything in particular.
+        if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
+            return;
+
+        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.SoundSensible)
+        {
+            affectee.ReduceProductivityBy(10f);
+            Debug.LogError(gameObject.name + " with the music annoyed " + affectee.gameObject.name);
+        }
     }
 
     public override void BeAffected(PersonalTrait affecter, GridPosition theirPosition)

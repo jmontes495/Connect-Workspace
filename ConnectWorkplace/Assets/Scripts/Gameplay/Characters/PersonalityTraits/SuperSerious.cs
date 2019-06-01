@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stretcher : PersonalTrait
+public class SuperSerious : PersonalTrait
 {
     private void Start()
     {
-        traitType = PersonalityTrait.TheStretcher;
+        traitType = PersonalityTrait.SuperSerious;
     }
 
     public override void AffectOther(PersonalTrait affectee, GridPosition theirPosition)
@@ -14,11 +14,7 @@ public class Stretcher : PersonalTrait
         if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
             return;
 
-        if (CheckIfAffectingPosition(theirPosition) && (affectee.GetTraitType() == PersonalityTrait.Otaku || affectee.GetTraitType() == PersonalityTrait.PaperFolder || affectee.GetTraitType() == PersonalityTrait.Thirstee))
-        {
-            affectee.ReduceProductivityBy(10f);
-            Debug.LogError(gameObject.name + " knocked down the stuff of " + affectee.gameObject.name);
-        }
+        affectee.ReduceProductivityBy(10f);
 
     }
 

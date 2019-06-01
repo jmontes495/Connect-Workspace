@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stretcher : PersonalTrait
+public class PaperFolder : PersonalTrait
 {
     private void Start()
     {
-        traitType = PersonalityTrait.TheStretcher;
+        traitType = PersonalityTrait.PaperFolder;
     }
 
     public override void AffectOther(PersonalTrait affectee, GridPosition theirPosition)
@@ -14,17 +14,16 @@ public class Stretcher : PersonalTrait
         if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
             return;
 
-        if (CheckIfAffectingPosition(theirPosition) && (affectee.GetTraitType() == PersonalityTrait.Otaku || affectee.GetTraitType() == PersonalityTrait.PaperFolder || affectee.GetTraitType() == PersonalityTrait.Thirstee))
+        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.Otaku)
         {
-            affectee.ReduceProductivityBy(10f);
-            Debug.LogError(gameObject.name + " knocked down the stuff of " + affectee.gameObject.name);
+            affectee.IncreaseProductivityBy(10f);
+            Debug.LogError(gameObject.name + " relaxed " + affectee.gameObject.name + " with the paper figurines");
         }
-
     }
 
     public override void BeAffected(PersonalTrait affecter, GridPosition theirPosition)
     {
-        // Not necesarrilly affected by anything in particular.
+        
     }
 
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)
@@ -37,6 +36,26 @@ public class Stretcher : PersonalTrait
         else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Right || employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Left)
         {
             if (theirPosition.GetRow() == employee.GetPosition().GetRow() + 1 || theirPosition.GetRow() == employee.GetPosition().GetRow() - 1)
+                return true;
+        }
+        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Up)
+        {
+            if (theirPosition.GetRow() == employee.GetPosition().GetRow() - 1)
+                return true;
+        }
+        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Right)
+        {
+            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() + 1)
+                return true;
+        }
+        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Left)
+        {
+            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() - 1)
+                return true;
+        }
+        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Down)
+        {
+            if (theirPosition.GetRow() == employee.GetPosition().GetRow() + 1)
                 return true;
         }
 

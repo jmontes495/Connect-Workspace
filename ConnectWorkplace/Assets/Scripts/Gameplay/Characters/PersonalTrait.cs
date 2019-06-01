@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PersonalTrait : MonoBehaviour
 {
-    public enum PersonalityTrait { LongLegs, ReclinerLover, TheStretcher, Otaku, PaperFolders, Thirstee, Metalhead, SocialMediaAddict, Smoker, SmellyPants, SoundSensible, OlorSensible };
+    public enum PersonalityTrait { LongLegs, ReclinerLover, TheStretcher, Otaku, PaperFolder, Thirstee, Metalhead, Smoker, SmellyPants, SoundSensible, OlorSensible, Gamer, Pyromaniac, SuperSerious };
     
     protected PersonalityTrait traitType;
 
