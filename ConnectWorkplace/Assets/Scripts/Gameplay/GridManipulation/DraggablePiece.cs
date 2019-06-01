@@ -29,7 +29,8 @@ public class DraggablePiece : MonoBehaviour
     {
 		if (Input.GetKeyUp(KeyCode.R) && isDragging)
         {
-            //myTransform.Rotate(new Vector3(0f,0f,90f));
+            myTransform.Rotate(new Vector3(0f,0f,90f));
+            GetComponent<BaseEmployee>().GetPosition().ChangeOrientation();
         }
     }
 

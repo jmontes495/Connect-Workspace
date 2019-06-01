@@ -5,8 +5,7 @@ using UnityEngine;
 public class PersonalTrait : MonoBehaviour
 {
     public enum PersonalityTrait { LongLegs, ReclinerLover, TheStretcher, Otaku, PaperFolders, Thirstee, Metalhead, SocialMediaAddict, Smoker, SmellyPants, SoundSensible, OlorSensible };
-
-    [SerializeField]
+    
     protected PersonalityTrait traitType;
 
     protected BaseEmployee employee;
@@ -31,6 +30,11 @@ public class PersonalTrait : MonoBehaviour
         employee.ReduceProductivity(productivityLost);
     }
 
+    public virtual void IncreaseProductivityBy(float productivityGain)
+    {
+        employee.IncreaseProductivity(productivityGain);
+    }
+
     protected virtual bool CheckIfAffectingPosition(GridPosition theirPosition)
     {
         return false;
@@ -38,6 +42,13 @@ public class PersonalTrait : MonoBehaviour
 
     public GridPosition GetPosition()
     {
+        if(employee == null)
+            employee = GetComponent<BaseEmployee>();
         return employee.GetPosition();
+    }
+
+    public PersonalityTrait GetTraitType()
+    {
+        return traitType;
     }
 }

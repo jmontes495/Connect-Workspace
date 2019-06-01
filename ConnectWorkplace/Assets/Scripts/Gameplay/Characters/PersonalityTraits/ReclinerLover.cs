@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LongLegs : PersonalTrait
+public class ReclinerLover : PersonalTrait
 {
     private void Start()
     {
-        traitType = PersonalityTrait.LongLegs;
+        traitType = PersonalityTrait.ReclinerLover;
     }
 
     public override void AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        if (CheckIfAffectingPosition(theirPosition))
+        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.ReclinerLover)
         {
             affectee.ReduceProductivityBy(10f);
-            Debug.LogError(gameObject.name + " kicked " + affectee.gameObject.name);
+            Debug.LogError(gameObject.name + " hit with the chair " + affectee.gameObject.name);
         }
 
     }
@@ -28,22 +28,22 @@ public class LongLegs : PersonalTrait
     {
         if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Up)
         {
-            if (theirPosition.GetRow() == employee.GetPosition().GetRow() - 1)
+            if (theirPosition.GetRow() == employee.GetPosition().GetRow() + 1)
                 return true;
         }
         else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Right)
         {
-            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() + 1)
+            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() - 1)
                 return true;
         }
         else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Left)
         {
-            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() - 1)
+            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() + 1)
                 return true;
         }
         else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Down)
         {
-            if (theirPosition.GetRow() == employee.GetPosition().GetRow() + 1)
+            if (theirPosition.GetRow() == employee.GetPosition().GetRow() - 1)
                 return true;
         }
 

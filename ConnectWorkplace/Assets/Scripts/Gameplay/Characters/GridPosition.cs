@@ -8,8 +8,6 @@ public class GridPosition
 
     private int column;
 
-    private int orientation;
-
     public enum FacingOrientation { Left, Down, Right, Up};
 
     private FacingOrientation facingOrientation;
@@ -19,15 +17,6 @@ public class GridPosition
         row = -1;
         column = -1;
         facingOrientation = initialOrientation;
-
-        if (facingOrientation == FacingOrientation.Down)
-                orientation = 0;
-        if (facingOrientation == FacingOrientation.Right)
-            orientation = 90;
-        if (facingOrientation == FacingOrientation.Up)
-            orientation = 180;
-        else
-            orientation = 270;
     }
 
     public void ChangePosition(int newRow, int newColumn)
@@ -46,18 +35,16 @@ public class GridPosition
         return column;
     }
 
-    public void ChangeOrientation(int newOrientation)
+    public void ChangeOrientation()
     {
-        orientation = newOrientation;
-
-        if (orientation%360 == 0)
-            facingOrientation = FacingOrientation.Down;
-        else if (orientation%360 == 90)
-            facingOrientation = FacingOrientation.Right;
-        else if (orientation%360 == 180)
-            facingOrientation = FacingOrientation.Up;
-        else
+        if (facingOrientation == FacingOrientation.Up)
             facingOrientation = FacingOrientation.Left;
+        else if (facingOrientation == FacingOrientation.Left)
+            facingOrientation = FacingOrientation.Down;
+        else if (facingOrientation == FacingOrientation.Down)
+            facingOrientation = FacingOrientation.Right;
+        else if (facingOrientation == FacingOrientation.Right)
+            facingOrientation = FacingOrientation.Up;
     }
 
     public FacingOrientation GetOrientation()

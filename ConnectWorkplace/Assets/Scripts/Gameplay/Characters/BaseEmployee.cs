@@ -7,9 +7,6 @@ public class BaseEmployee : MonoBehaviour
 {
     private float productivity; //Value between 1 and 100
 
-    [SerializeField]
-    private List<PersonalTrait> traits;
-
     private GridPosition currentPosition;
 
     [SerializeField]
@@ -21,14 +18,14 @@ public class BaseEmployee : MonoBehaviour
         currentPosition.Initialize(initialFacing);
     }
 
-    public bool ContainsTrait(PersonalTrait theTrait)
-    {
-        return traits.Contains(theTrait);
-    }
-
     public void ReduceProductivity(float productivityLost)
     {
         productivity -= productivityLost;
+    }
+
+    public void IncreaseProductivity(float productivityGain)
+    {
+        productivity += productivityGain;
     }
 
     public GridPosition GetPosition()

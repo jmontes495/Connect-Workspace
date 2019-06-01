@@ -13,7 +13,6 @@ public class ProductivityController : MonoBehaviour
         employees = GetComponentsInChildren<PersonalTrait>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Space) && !productivityHasBeenCalculated)
