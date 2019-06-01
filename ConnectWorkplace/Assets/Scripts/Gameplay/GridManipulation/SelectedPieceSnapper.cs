@@ -17,6 +17,8 @@ public class SelectedPieceSnapper : MonoBehaviour
 
     private DraggablePiece hoveOverPiece;
 
+    private CellBehaviour currentCell;
+
     private bool snapping;
 
     void Start()
@@ -56,13 +58,17 @@ public class SelectedPieceSnapper : MonoBehaviour
         currentSnapPosition = other.gameObject.transform.position;
         currentSnapPosition.z = -5;
         snapping = true;
-		if (currentPiece != null)
-			currentPiece.ChangeInitialPosition(currentSnapPosition);
+        if (currentPiece != null)
+        {
+            currentCell = other.GetComponent<CellBehaviour>();
+            currentPiece.ChangeInitialPosition(currentSnapPosition, currentCell.Row, currentCell.Column);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         currentSnapPosition = myTransform.position;
+        currentCell = null;
         snapping = false;
     }
 
@@ -90,7 +96,7 @@ public class SelectedPieceSnapper : MonoBehaviour
             currentPiece.CancelSelection();
         else if (!currentPiece.isDragging && snapping)
         {
-            currentPiece.ChangeInitialPosition(currentSnapPosition);
+            currentPiece.ChangeInitialPosition(currentSnapPosition, currentCell.Row, currentCell.Column);
             currentPiece.CancelSelection();
         }
     }

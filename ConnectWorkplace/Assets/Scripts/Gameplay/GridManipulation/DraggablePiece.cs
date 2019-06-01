@@ -10,13 +10,16 @@ public class DraggablePiece : MonoBehaviour
 
 	private Renderer image;
 
-	[SerializeField]
-    public Transform myTransform;
+	public Transform myTransform;
 
     private Vector3 initialPosition;
 
+    private BaseEmployee employee;
+
     private void Start()
     {
+        employee = GetComponent<BaseEmployee>();
+        myTransform = gameObject.transform;
         initialPosition = myTransform.position;
 		image = GetComponent<Renderer>();
         image.material.color = Color.white;
@@ -26,7 +29,7 @@ public class DraggablePiece : MonoBehaviour
     {
 		if (Input.GetKeyUp(KeyCode.R) && isDragging)
         {
-            myTransform.Rotate(new Vector3(0f,0f,90f));
+            //myTransform.Rotate(new Vector3(0f,0f,90f));
         }
     }
 
@@ -43,9 +46,10 @@ public class DraggablePiece : MonoBehaviour
 		EvaluateColor();
     }
 
-    public void ChangeInitialPosition(Vector3 newPosition)
+    public void ChangeInitialPosition(Vector3 newPosition, int row, int column)
     {
         initialPosition = newPosition;
+        employee.GetPosition().ChangePosition(row, column);
     }
 
     public void CancelSelection()
