@@ -179,9 +179,8 @@ GameObject:
   - component: {fileID: 7280549390683029286}
   - component: {fileID: 7280549390683029287}
   - component: {fileID: 7280549390683029291}
-  - component: {fileID: 7280549390683029290}
   m_Layer: 10
-  m_Name: DaddyLongLegs
+  m_Name: Employee
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,18 +307,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialFacing: 0
---- !u!114 &7280549390683029290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7280549390683029283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f47b67b56ba902841b897fd8607711b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7280549390327685951
 PrefabInstance:
   m_ObjectHideFlags: 0
