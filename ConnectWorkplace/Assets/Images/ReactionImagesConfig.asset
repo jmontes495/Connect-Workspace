@@ -12,18 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d2c078a0b21e242acfa78198502c71, type: 3}
   m_Name: ReactionImagesConfig
   m_EditorClassIdentifier: 
-  annoyingNoise: {fileID: 0}
-  annoyingSmoke: {fileID: 0}
-  resourcesBucket: {fileID: 0}
-  goodAnime: {fileID: 0}
-  goodGames: {fileID: 0}
-  gotKicked: {fileID: 0}
-  knockedFigures: {fileID: 0}
-  knockedOrigami: {fileID: 0}
-  knockedWater: {fileID: 0}
-  stressful: {fileID: 0}
-  burntOrigami: {fileID: 0}
-  heartfulFigures: {fileID: 0}
-  litCigarrette: {fileID: 0}
-  chairClash: {fileID: 0}
-  goodMusic: {fileID: 0}
+  annoyingNoise: {fileID: 21300000, guid: ed0c7aeef16f5bb4782f711a85adfa79, type: 3}
+  annoyingSmoke: {fileID: 21300000, guid: 05797fcec338db5439eacd40b56fb5ee, type: 3}
+  goodAnime: {fileID: 21300000, guid: 504d1c0f166332d4fa760c28a9d0c21b, type: 3}
+  goodGames: {fileID: 21300000, guid: fad8627c39e855e4c9385db4faa41a94, type: 3}
+  gotKicked: {fileID: 21300000, guid: 689528d1efea744459fe9c28ec2774f8, type: 3}
+  knockedFigures: {fileID: 21300000, guid: b4f8a8a9477ac0e4685018fc56e95c2d, type: 3}
+  knockedOrigami: {fileID: 21300000, guid: 7a2511a5bd188c348afb1065fc332625, type: 3}
+  knockedWater: {fileID: 21300000, guid: 1ae433ba3d873e34a88125eaa710975b, type: 3}
+  stressful: {fileID: 21300000, guid: ac72cf96a0546ab4c9e371c3b1ebff76, type: 3}
+  burntOrigami: {fileID: 21300000, guid: ae9492b6d55af824eba27614a1267e83, type: 3}
+  heartfulFigures: {fileID: 21300000, guid: 3104c6b7ad914554b8b176e232e1ab1f, type: 3}
+  litCigarrette: {fileID: 21300000, guid: e421801a9b2f1d04e9b444d304470285, type: 3}
+  chairClash: {fileID: 21300000, guid: 4374c87ec5f9fdb4cacbb2c4b2c31ee1, type: 3}
+  goodMusic: {fileID: 21300000, guid: 7f74999d0f5ed2d42a8df1a461501b11, type: 3}

@@ -8,8 +8,6 @@ public class ReactionImagesConfig : ScriptableObject
     [SerializeField]
     private Sprite annoyingSmoke;
     [SerializeField]
-    private Sprite resourcesBucket;
-    [SerializeField]
     private Sprite goodAnime;
     [SerializeField]
     private Sprite goodGames;
@@ -64,6 +62,8 @@ public class ReactionImagesConfig : ScriptableObject
                 return litCigarrette;
             case TypesOfReaction.GoodMusic:
                 return goodMusic;
+            case TypesOfReaction.ChairClash:
+                return chairClash;
             default:
                 return annoyingNoise;
 
