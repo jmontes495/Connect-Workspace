@@ -21,7 +21,7 @@ public class Gamer : PersonalTrait
             reaction = TypesOfReaction.GoodGames;
             Debug.LogError(gameObject.name + " talked about Death Stranding with " + affectee.gameObject.name);
         }
-        else if ((CheckIfAffectingPosition(theirPosition) || CheckBack(theirPosition)) && affectee.GetTraitType() == PersonalityTrait.SoundSensible)
+        else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.SoundSensible)
         {
             affectee.ReduceProductivityBy(10f);
             reaction = TypesOfReaction.AnnoyingNoise;
@@ -39,6 +39,6 @@ public class Gamer : PersonalTrait
 
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)
     {
-        return CheckFront(theirPosition) || CheckSides(theirPosition);
+        return CheckFront(theirPosition) || CheckSides(theirPosition) || CheckBack(theirPosition);
     }
 }
