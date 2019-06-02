@@ -17,7 +17,7 @@ public class PaperFolder : PersonalTrait
         TypesOfReaction reaction = TypesOfReaction.None;
         if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.Otaku)
         {
-            affectee.IncreaseProductivityBy(10f);
+            affectee.IncreaseProductivityBy(4f);
             reaction = TypesOfReaction.HeartfulFigures;
             Debug.LogError(gameObject.name + " relaxed " + affectee.gameObject.name + " with the paper figurines");
         }

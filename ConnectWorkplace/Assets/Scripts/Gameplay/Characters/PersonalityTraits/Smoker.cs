@@ -17,7 +17,7 @@ public class Smoker : PersonalTrait
         TypesOfReaction reaction = TypesOfReaction.None;
         if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() != PersonalityTrait.Smoker)
         {
-            affectee.ReduceProductivityBy(10f);
+            affectee.ReduceProductivityBy(6f);
             reaction = TypesOfReaction.AnnoyingSmoke;
             Debug.LogError(gameObject.name + " contaminated the air of " + affectee.gameObject.name);
         }

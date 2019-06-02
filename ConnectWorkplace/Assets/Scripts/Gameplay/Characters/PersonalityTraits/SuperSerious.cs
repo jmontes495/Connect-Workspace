@@ -14,7 +14,7 @@ public class SuperSerious : PersonalTrait
         if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
             return TypesOfReaction.None;
 
-        affectee.ReduceProductivityBy(10f);
+        affectee.ReduceProductivityBy(4f);
         return TypesOfReaction.Stressful;
     }
 

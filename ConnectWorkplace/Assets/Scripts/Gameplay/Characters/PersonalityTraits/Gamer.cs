@@ -17,13 +17,13 @@ public class Gamer : PersonalTrait
 
         if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.Otaku)
         {
-            affectee.IncreaseProductivityBy(10f);
+            affectee.IncreaseProductivityBy(2f);
             reaction = TypesOfReaction.GoodGames;
             Debug.LogError(gameObject.name + " talked about Death Stranding with " + affectee.gameObject.name);
         }
         else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.SoundSensible)
         {
-            affectee.ReduceProductivityBy(10f);
+            affectee.ReduceProductivityBy(3f);
             reaction = TypesOfReaction.AnnoyingNoise;
             Debug.LogError(gameObject.name + " with the noise annoyed " + affectee.gameObject.name);
             

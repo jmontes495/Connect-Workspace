@@ -18,13 +18,13 @@ public class Pyromaniac : PersonalTrait
 
         if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.PaperFolder)
         {
-            affectee.ReduceProductivityBy(10f);
+            affectee.ReduceProductivityBy(6f);
             reaction = TypesOfReaction.BurntOrigami;
             Debug.LogError(gameObject.name + " almost burned the figurines of " + affectee.gameObject.name);
         }
         else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.Smoker)
         {
-            affectee.IncreaseProductivityBy(10f);
+            affectee.IncreaseProductivityBy(3f);
             reaction = TypesOfReaction.LitCigarrette;
             Debug.LogError(gameObject.name + " lit the cigarretes of " + affectee.gameObject.name);
         }

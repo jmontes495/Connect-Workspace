@@ -18,7 +18,7 @@ public class LongLegs : PersonalTrait
 
         if (CheckIfAffectingPosition(theirPosition))
         {
-            affectee.ReduceProductivityBy(10f);
+            affectee.ReduceProductivityBy(3f);
             reaction = TypesOfReaction.GotKicked;
             Debug.LogError(gameObject.name + " kicked " + affectee.gameObject.name);
         }

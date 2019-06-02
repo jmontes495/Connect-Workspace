@@ -17,7 +17,7 @@ public class ReclinerLover : PersonalTrait
         TypesOfReaction reaction = TypesOfReaction.None;
         if (CheckIfAffectingPosition(theirPosition))
         {
-            affectee.ReduceProductivityBy(10f);
+            affectee.ReduceProductivityBy(3f);
             reaction = TypesOfReaction.ChairClash;
             Debug.LogError(gameObject.name + " hit with the chair " + affectee.gameObject.name);
         }

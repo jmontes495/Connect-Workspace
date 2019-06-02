@@ -17,7 +17,7 @@ public class Stretcher : PersonalTrait
         TypesOfReaction reaction = TypesOfReaction.None;
         if (CheckIfAffectingPosition(theirPosition) && (affectee.GetTraitType() == PersonalityTrait.Otaku || affectee.GetTraitType() == PersonalityTrait.PaperFolder || affectee.GetTraitType() == PersonalityTrait.Thirstee))
         {
-            affectee.ReduceProductivityBy(10f);
+            affectee.ReduceProductivityBy(3f);
             switch (affectee.GetTraitType())
             {
                 case PersonalityTrait.Otaku:

@@ -20,7 +20,7 @@ public class Otaku : PersonalTrait
 
         if (CheckIfAffectingPosition(theirPosition) && affecter.GetTraitType() == PersonalityTrait.Otaku)
         {
-            employee.IncreaseProductivity(10f);
+            employee.IncreaseProductivity(5f);
             reaction = TypesOfReaction.GoodAnime;
             Debug.LogError(gameObject.name + " talked about anime with " + affecter.gameObject.name);
         }
