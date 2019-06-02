@@ -19,6 +19,8 @@ public class BaseEmployee : MonoBehaviour
         currentPosition = new GridPosition();
         currentPosition.Initialize(initialFacing);
         reactionBubble = GetComponentInChildren<ReactionBubble>();
+        if (GetComponent<StaticGridPosition>() != null)
+            GetComponent<StaticGridPosition>().SetStaticPosition();
     }
 
     public void ReduceProductivity(float productivityLost)
