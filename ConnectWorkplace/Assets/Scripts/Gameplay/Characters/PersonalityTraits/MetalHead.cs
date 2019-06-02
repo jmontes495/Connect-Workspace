@@ -38,17 +38,6 @@ public class MetalHead : PersonalTrait
 
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)
     {
-        if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Up || employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Down)
-        {
-            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() - 1 || theirPosition.GetColumn() == employee.GetPosition().GetColumn() + 1)
-                return true;
-        }
-        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Right || employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Left)
-        {
-            if (theirPosition.GetRow() == employee.GetPosition().GetRow() + 1 || theirPosition.GetRow() == employee.GetPosition().GetRow() - 1)
-                return true;
-        }
-
-        return false;
+        return CheckSides(theirPosition);
     }
 }

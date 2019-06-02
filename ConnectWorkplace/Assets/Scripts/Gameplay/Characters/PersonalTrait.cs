@@ -40,6 +40,74 @@ public class PersonalTrait : MonoBehaviour
         return false;
     }
 
+    protected bool CheckSides(GridPosition theirPosition)
+    {
+        if ((employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Up || employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Down) && theirPosition.GetRow() == employee.GetPosition().GetRow())
+        {
+            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() - 1 || theirPosition.GetColumn() == employee.GetPosition().GetColumn() + 1)
+                return true;
+        }
+        else if ((employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Right || employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Left) && theirPosition.GetColumn() == employee.GetPosition().GetColumn())
+        {
+            if (theirPosition.GetRow() == employee.GetPosition().GetRow() + 1 || theirPosition.GetRow() == employee.GetPosition().GetRow() - 1)
+                return true;
+        }
+
+        return false;
+    }
+
+    protected bool CheckBack(GridPosition theirPosition)
+    {
+        if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Up && theirPosition.GetColumn() == employee.GetPosition().GetColumn())
+        {
+            if (theirPosition.GetRow() == employee.GetPosition().GetRow() + 1)
+                return true;
+        }
+        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Right && theirPosition.GetRow() == employee.GetPosition().GetRow())
+        {
+            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() - 1)
+                return true;
+        }
+        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Left && theirPosition.GetRow() == employee.GetPosition().GetRow())
+        {
+            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() + 1)
+                return true;
+        }
+        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Down && theirPosition.GetColumn() == employee.GetPosition().GetColumn())
+        {
+            if (theirPosition.GetRow() == employee.GetPosition().GetRow() - 1)
+                return true;
+        }
+
+        return false;    
+    }
+
+    protected bool CheckFront(GridPosition theirPosition)
+    {
+        if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Up && theirPosition.GetColumn() == employee.GetPosition().GetColumn())
+        {
+            if (theirPosition.GetRow() == employee.GetPosition().GetRow() - 1)
+                return true;
+        }
+        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Right && theirPosition.GetRow() == employee.GetPosition().GetRow())
+        {
+            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() + 1)
+                return true;
+        }
+        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Left && theirPosition.GetRow() == employee.GetPosition().GetRow())
+        {
+            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() - 1)
+                return true;
+        }
+        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Down && theirPosition.GetColumn() == employee.GetPosition().GetColumn())
+        {
+            if (theirPosition.GetRow() == employee.GetPosition().GetRow() + 1)
+                return true;
+        }
+
+        return false;
+    }
+
     public GridPosition GetPosition()
     {
         if(employee == null)

@@ -21,37 +21,12 @@ public class Gamer : PersonalTrait
             reaction = TypesOfReaction.GoodGames;
             Debug.LogError(gameObject.name + " talked about Death Stranding with " + affectee.gameObject.name);
         }
-        else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.SoundSensible)
+        else if ((CheckIfAffectingPosition(theirPosition) || CheckBack(theirPosition)) && affectee.GetTraitType() == PersonalityTrait.SoundSensible)
         {
-            bool affected = false;
-            if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Up)
-            {
-                if (theirPosition.GetRow() == employee.GetPosition().GetRow() + 1)
-                    affected = true;
-                
-            }
-            else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Right)
-            {
-                if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() - 1)
-                    affected = true;
-            }
-            else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Left)
-            {
-                if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() + 1)
-                    affected = true;
-            }
-            else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Down)
-            {
-                if (theirPosition.GetRow() == employee.GetPosition().GetRow() - 1)
-                    affected = true;
-            }
-
-            if (affected)
-            {
-                affectee.ReduceProductivityBy(10f);
-                reaction = TypesOfReaction.AnnoyingNoise;
-                Debug.LogError(gameObject.name + " with the noise annoyed " + affectee.gameObject.name);
-            }
+            affectee.ReduceProductivityBy(10f);
+            reaction = TypesOfReaction.AnnoyingNoise;
+            Debug.LogError(gameObject.name + " with the noise annoyed " + affectee.gameObject.name);
+            
         }
 
         return reaction;
@@ -64,37 +39,6 @@ public class Gamer : PersonalTrait
 
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)
     {
-        if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Up || employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Down)
-        {
-            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() - 1 || theirPosition.GetColumn() == employee.GetPosition().GetColumn() + 1)
-                return true;
-        }
-        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Right || employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Left)
-        {
-            if (theirPosition.GetRow() == employee.GetPosition().GetRow() + 1 || theirPosition.GetRow() == employee.GetPosition().GetRow() - 1)
-                return true;
-        }
-        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Up)
-        {
-            if (theirPosition.GetRow() == employee.GetPosition().GetRow() - 1)
-                return true;
-        }
-        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Right)
-        {
-            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() + 1)
-                return true;
-        }
-        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Left)
-        {
-            if (theirPosition.GetColumn() == employee.GetPosition().GetColumn() - 1)
-                return true;
-        }
-        else if (employee.GetPosition().GetOrientation() == GridPosition.FacingOrientation.Down)
-        {
-            if (theirPosition.GetRow() == employee.GetPosition().GetRow() + 1)
-                return true;
-        }
-
-        return false;
+        return CheckFront(theirPosition) || CheckSides(theirPosition);
     }
 }
