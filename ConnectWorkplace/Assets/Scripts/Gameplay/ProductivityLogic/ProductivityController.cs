@@ -10,10 +10,14 @@ public class ProductivityController : MonoBehaviour
 
     private List<EmployeeReaction> reactionsPending;
 
+    private ReactionBubble reactionBubble;
+
     void Start()
     {
         employees = GetComponentsInChildren<PersonalTrait>();
         reactionsPending = new List<EmployeeReaction>();
+        reactionBubble = GetComponentInChildren<ReactionBubble>();
+        HideReaction();
     }
 
     void Update()
@@ -61,9 +65,22 @@ public class ProductivityController : MonoBehaviour
         {
             EmployeeReaction topReaction = reactionsPending[0];
             reactionsPending.Remove(topReaction);
-            topReaction.employee.ShowReaction(topReaction.reaction);
+            ShowReaction(topReaction.employee, topReaction.reaction);
             yield return new WaitForSeconds(3f);
-            topReaction.employee.HideReaction();
+            HideReaction();
         }
+    }
+
+    public void ShowReaction(BaseEmployee employee, TypesOfReaction reaction)
+    {
+        Vector3 newPosition = employee.transform.position;
+        newPosition.z = -70;
+        reactionBubble.transform.position = newPosition;
+        reactionBubble.ShowReaction(reaction);
+    }
+
+    public void HideReaction()
+    {
+        reactionBubble.HideReaction();
     }
 }

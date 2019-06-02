@@ -12,14 +12,18 @@ public class ReactionBubble : MonoBehaviour
     [SerializeField]
     private ReactionImagesConfig reactionsConfig;
 
+    private Quaternion originalRotation;
+
     void Start()
     {
         bubble = gameObject;
         bubble.transform.DOScale(Vector3.zero,0);
+        originalRotation = transform.rotation;
     }
 
     public void ShowReaction(TypesOfReaction typeOfReaction)
     {
+        bubble.transform.rotation = originalRotation;
         employeeReaction.sprite = reactionsConfig.GetImageByReaction(typeOfReaction);
         bubble.transform.DOScale(Vector3.one, 0.15f);
     }
