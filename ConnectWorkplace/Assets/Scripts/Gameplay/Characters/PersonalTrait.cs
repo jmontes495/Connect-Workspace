@@ -15,14 +15,14 @@ public class PersonalTrait : MonoBehaviour
         employee = GetComponent<BaseEmployee>();
     }
 
-    public virtual void AffectOther(PersonalTrait affectee, GridPosition theirPosition)
+    public virtual TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-
+        return TypesOfReaction.None;
     }
 
-    public virtual void BeAffected(PersonalTrait affecter, GridPosition theirPosition)
+    public virtual TypesOfReaction BeAffected(PersonalTrait affecter, GridPosition theirPosition)
     {
-
+        return TypesOfReaction.None;
     }
 
     public virtual void ReduceProductivityBy(float productivityLost)
@@ -50,5 +50,10 @@ public class PersonalTrait : MonoBehaviour
     public PersonalityTrait GetTraitType()
     {
         return traitType;
+    }
+
+    public BaseEmployee GetEmployee()
+    {
+        return employee;
     }
 }

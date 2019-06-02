@@ -9,22 +9,36 @@ public class Stretcher : PersonalTrait
         traitType = PersonalityTrait.TheStretcher;
     }
 
-    public override void AffectOther(PersonalTrait affectee, GridPosition theirPosition)
+    public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
         if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
-            return;
+            return TypesOfReaction.None;
 
+        TypesOfReaction reaction = TypesOfReaction.None;
         if (CheckIfAffectingPosition(theirPosition) && (affectee.GetTraitType() == PersonalityTrait.Otaku || affectee.GetTraitType() == PersonalityTrait.PaperFolder || affectee.GetTraitType() == PersonalityTrait.Thirstee))
         {
             affectee.ReduceProductivityBy(10f);
+            switch (affectee.GetTraitType())
+            {
+                case PersonalityTrait.Otaku:
+                    reaction = TypesOfReaction.KnockedFigures;
+                    break;
+                case PersonalityTrait.PaperFolder:
+                    reaction = TypesOfReaction.KnockedOrigami;
+                    break;
+                case PersonalityTrait.Thirstee:
+                    reaction = TypesOfReaction.KnockedWater;
+                    break;
+            }
             Debug.LogError(gameObject.name + " knocked down the stuff of " + affectee.gameObject.name);
         }
+        return reaction;
 
     }
 
-    public override void BeAffected(PersonalTrait affecter, GridPosition theirPosition)
+    public override TypesOfReaction BeAffected(PersonalTrait affecter, GridPosition theirPosition)
     {
-        // Not necesarrilly affected by anything in particular.
+        return TypesOfReaction.None;
     }
 
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)

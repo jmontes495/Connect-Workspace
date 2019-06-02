@@ -37,7 +37,7 @@ public class SelectedPieceSnapper : MonoBehaviour
 
         if (hoveOverPiece != null)
         {
-            if (hoveOverPiece.isDragging)
+            if (hoveOverPiece.IsDragging)
                 currentPiece = hoveOverPiece;
             else
             {
@@ -90,11 +90,11 @@ public class SelectedPieceSnapper : MonoBehaviour
 
     private void DetermineCurrentPieceFate()
     {
-        if (currentPiece.isDragging)
+        if (currentPiece.IsDragging)
 			currentPiece.myTransform.position = currentSnapPosition;
-        else if (!currentPiece.isDragging && !snapping)
+        else if (!currentPiece.IsDragging && !snapping)
             currentPiece.CancelSelection();
-        else if (!currentPiece.isDragging && snapping)
+        else if (!currentPiece.IsDragging && snapping)
         {
             currentPiece.ChangeInitialPosition(currentSnapPosition, currentCell.Row, currentCell.Column);
             currentPiece.CancelSelection();

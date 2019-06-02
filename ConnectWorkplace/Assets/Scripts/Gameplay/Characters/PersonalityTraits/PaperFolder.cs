@@ -9,21 +9,24 @@ public class PaperFolder : PersonalTrait
         traitType = PersonalityTrait.PaperFolder;
     }
 
-    public override void AffectOther(PersonalTrait affectee, GridPosition theirPosition)
+    public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
         if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
-            return;
+            return TypesOfReaction.None;
 
+        TypesOfReaction reaction = TypesOfReaction.None;
         if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.Otaku)
         {
             affectee.IncreaseProductivityBy(10f);
+            reaction = TypesOfReaction.HeartfulFigures;
             Debug.LogError(gameObject.name + " relaxed " + affectee.gameObject.name + " with the paper figurines");
         }
+        return reaction;
     }
 
-    public override void BeAffected(PersonalTrait affecter, GridPosition theirPosition)
+    public override TypesOfReaction BeAffected(PersonalTrait affecter, GridPosition theirPosition)
     {
-        
+        return TypesOfReaction.None;
     }
 
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)

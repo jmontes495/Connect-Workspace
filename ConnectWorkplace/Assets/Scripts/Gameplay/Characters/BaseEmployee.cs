@@ -9,6 +9,8 @@ public class BaseEmployee : MonoBehaviour
 
     private GridPosition currentPosition;
 
+    private ReactionBubble reactionBubble;
+
     [SerializeField]
     private FacingOrientation initialFacing;
 
@@ -16,6 +18,7 @@ public class BaseEmployee : MonoBehaviour
     {
         currentPosition = new GridPosition();
         currentPosition.Initialize(initialFacing);
+        reactionBubble = GetComponentInChildren<ReactionBubble>();
     }
 
     public void ReduceProductivity(float productivityLost)
@@ -31,5 +34,15 @@ public class BaseEmployee : MonoBehaviour
     public GridPosition GetPosition()
     {
         return currentPosition;
+    }
+
+    public void ShowReaction(TypesOfReaction reaction)
+    {
+        reactionBubble.ShowReaction(reaction);
+    }
+
+    public void HideReaction( )
+    {
+        reactionBubble.HideReaction();
     }
 }

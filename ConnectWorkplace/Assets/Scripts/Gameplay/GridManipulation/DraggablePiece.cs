@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DraggablePiece : MonoBehaviour
 {
-    public bool isDragging;
+    private bool isDragging;
 
-	public int blockers;
+	private int blockers;
 
 	private Renderer image;
 
@@ -15,6 +15,11 @@ public class DraggablePiece : MonoBehaviour
     private Vector3 initialPosition;
 
     private BaseEmployee employee;
+
+    public bool IsDragging
+    {
+        get { return isDragging; }
+    }
 
     private void Start()
     {

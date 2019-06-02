@@ -9,22 +9,26 @@ public class LongLegs : PersonalTrait
         traitType = PersonalityTrait.LongLegs;
     }
 
-    public override void AffectOther(PersonalTrait affectee, GridPosition theirPosition)
+    public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
         if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
-            return;
+            return TypesOfReaction.None;
+
+        TypesOfReaction reaction = TypesOfReaction.None;
 
         if (CheckIfAffectingPosition(theirPosition))
         {
             affectee.ReduceProductivityBy(10f);
+            reaction = TypesOfReaction.GotKicked;
             Debug.LogError(gameObject.name + " kicked " + affectee.gameObject.name);
         }
 
+        return reaction;
     }
 
-    public override void BeAffected(PersonalTrait affecter, GridPosition theirPosition)
+    public override TypesOfReaction BeAffected(PersonalTrait affecter, GridPosition theirPosition)
     {
-        // Not necesarrilly affected by anything in particular.
+        return TypesOfReaction.None;
     }
 
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)

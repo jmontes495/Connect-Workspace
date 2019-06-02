@@ -9,18 +9,23 @@ public class Otaku : PersonalTrait
         traitType = PersonalityTrait.Otaku;
     }
 
-    public override void AffectOther(PersonalTrait affectee, GridPosition theirPosition)
+    public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        // Not necesarrilly affects others with anything in particular.
+        return TypesOfReaction.None;
     }
 
-    public override void BeAffected(PersonalTrait affecter, GridPosition theirPosition)
+    public override TypesOfReaction BeAffected(PersonalTrait affecter, GridPosition theirPosition)
     {
+        TypesOfReaction reaction = TypesOfReaction.None;
+
         if (CheckIfAffectingPosition(theirPosition) && affecter.GetTraitType() == PersonalityTrait.Otaku)
         {
             employee.IncreaseProductivity(10f);
+            reaction = TypesOfReaction.GoodAnime;
             Debug.LogError(gameObject.name + " talked about anime with " + affecter.gameObject.name);
         }
+
+        return reaction;
     }
 
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)
