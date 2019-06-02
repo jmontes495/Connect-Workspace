@@ -36,11 +36,6 @@ public class Stretcher : PersonalTrait
 
     }
 
-    public override TypesOfReaction BeAffected(PersonalTrait affecter, GridPosition theirPosition)
-    {
-        return TypesOfReaction.None;
-    }
-
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)
     {
         return CheckSides(theirPosition);

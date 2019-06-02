@@ -24,11 +24,6 @@ public class Smoker : PersonalTrait
         return reaction;
     }
 
-    public override TypesOfReaction BeAffected(PersonalTrait affecter, GridPosition theirPosition)
-    {
-        return TypesOfReaction.None;
-    }
-
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)
     {
         return CheckSides(theirPosition);

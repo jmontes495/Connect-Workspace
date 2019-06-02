@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProductivityController : MonoBehaviour
 {
-    private PersonalTrait[] employees;
+    private BaseEmployee[] employees;
 
     private bool productivityHasBeenCalculated;
 
@@ -14,7 +14,7 @@ public class ProductivityController : MonoBehaviour
 
     void Start()
     {
-        employees = GetComponentsInChildren<PersonalTrait>();
+        employees = GetComponentsInChildren<BaseEmployee>();
         reactionsPending = new List<EmployeeReaction>();
         reactionBubble = GetComponentInChildren<ReactionBubble>();
         HideReaction();
@@ -32,28 +32,39 @@ public class ProductivityController : MonoBehaviour
 
     private void CalculateReactions()
     {
-        foreach (PersonalTrait currentEmployee in employees)
+        foreach (BaseEmployee currentEmployee in employees)
         {
-            foreach (PersonalTrait traitPresent in employees)
+            EvaluateEmployee(currentEmployee);
+        }
+    }
+
+    private void EvaluateEmployee(BaseEmployee theEmployee)
+    {
+        PersonalTrait[] employeeTraits = theEmployee.GetComponents<PersonalTrait>();
+        foreach (PersonalTrait trait in employeeTraits)
+        {
+            foreach (BaseEmployee currentEmployee in employees)
             {
-                TypesOfReaction affectee = currentEmployee.BeAffected(traitPresent, traitPresent.GetPosition());
-                TypesOfReaction affected = currentEmployee.AffectOther(traitPresent, traitPresent.GetPosition());
+                AffectEmployeeWithTrait(currentEmployee, trait);
+            }
+        }
+    }
 
-                if (affectee != TypesOfReaction.None)
-                {
-                    EmployeeReaction affecteeReaction = new EmployeeReaction();
-                    affecteeReaction.employee = currentEmployee.GetEmployee();
-                    affecteeReaction.reaction = affectee;
-                    reactionsPending.Add(affecteeReaction);
-                }
+    private void AffectEmployeeWithTrait(BaseEmployee theEmployee, PersonalTrait theTrait)
+    {
+        PersonalTrait[] employeeTraits = theEmployee.GetComponents<PersonalTrait>();
+        TypesOfReaction reaction = TypesOfReaction.None;
+        foreach (PersonalTrait trait in employeeTraits)
+        {
+            reaction = theTrait.AffectOther(trait, trait.GetPosition());
 
-                if (affected != TypesOfReaction.None)
-                {
-                    EmployeeReaction affecteeReaction = new EmployeeReaction();
-                    affecteeReaction.employee = traitPresent.GetEmployee();
-                    affecteeReaction.reaction = affected;
-                    reactionsPending.Add(affecteeReaction);
-                }
+            if (reaction != TypesOfReaction.None)
+            {
+                EmployeeReaction reacted = new EmployeeReaction();
+                reacted.reaction = reaction;
+                reacted.employee = theEmployee;
+                reactionsPending.Add(reacted);
+                return;
             }
         }
     }

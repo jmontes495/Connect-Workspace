@@ -8,6 +8,7 @@ public class PersonalTrait : MonoBehaviour
     
     protected PersonalityTrait traitType;
 
+    [SerializeField]
     protected BaseEmployee employee;
 
     private void Start()
@@ -16,11 +17,6 @@ public class PersonalTrait : MonoBehaviour
     }
 
     public virtual TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
-    {
-        return TypesOfReaction.None;
-    }
-
-    public virtual TypesOfReaction BeAffected(PersonalTrait affecter, GridPosition theirPosition)
     {
         return TypesOfReaction.None;
     }

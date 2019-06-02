@@ -21,21 +21,15 @@ public class MetalHead : PersonalTrait
             reaction = TypesOfReaction.AnnoyingNoise;
             Debug.LogError(gameObject.name + " with the music annoyed " + affectee.gameObject.name);
         }
-        return reaction;
-    }
-
-    public override TypesOfReaction BeAffected(PersonalTrait affecter, GridPosition theirPosition)
-    {
-        TypesOfReaction reaction = TypesOfReaction.None;
-        if (CheckIfAffectingPosition(theirPosition) && affecter.GetTraitType() == PersonalityTrait.Metalhead)
+        else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.Metalhead)
         {
-            employee.IncreaseProductivity(5f);
+            affectee.IncreaseProductivityBy(5f);
             reaction = TypesOfReaction.GoodMusic;
-            Debug.LogError(gameObject.name + " shared Ramnstein songs with " + affecter.gameObject.name);
+            Debug.LogError(gameObject.name + " shared Ramnstein songs with " + affectee.gameObject.name);
         }
         return reaction;
     }
-
+    
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)
     {
         return CheckSides(theirPosition);
