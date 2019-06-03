@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Character01_Material
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: _EMISSION _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-  m_LightmapFlags: 2
+  m_ShaderKeywords: _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ce761c6f8277fc045861c7390dc12b14, type: 3}
+        m_Texture: {fileID: 2800000, guid: 856e796da782d8f47a1a8a0b81e2e8db, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -53,7 +53,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.442
     - _GlossyReflections: 1
-    - _Metallic: 0.453
+    - _Metallic: 0
     - _OcclusionStrength: 1
     - _ReceiveShadows: 1
     - _SmoothnessTextureChannel: 1
@@ -63,6 +63,6 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.8962264, g: 0.83476925, b: 0.78208435, a: 1}
-    - _EmissionColor: {r: 0.16442153, g: 0.10811279, b: 0.10811279, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0.15602964, g: 0.15602964, b: 0.15602964, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
