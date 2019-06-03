@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DraggablePiece : MonoBehaviour
 {
+    public delegate void GridEvent();
+    public static event GridEvent SetPiece;
+
     private bool isDragging;
 
 	private int blockers;
@@ -15,6 +18,10 @@ public class DraggablePiece : MonoBehaviour
     private Vector3 initialPosition;
 
     private BaseEmployee employee;
+
+    public enum PieceState { Dragging, Invalid, Set };
+
+    public PieceState pieceState;
 
     public bool IsDragging
     {
@@ -28,6 +35,7 @@ public class DraggablePiece : MonoBehaviour
         initialPosition = myTransform.position;
 		image = GetComponent<Renderer>();
         image.material.color = Color.white;
+        pieceState = PieceState.Invalid;
     }
 
     private void Update()
@@ -50,6 +58,7 @@ public class DraggablePiece : MonoBehaviour
         isDragging = false;
 		CancelSelection();
 		EvaluateColor();
+        SetPiece();
     }
 
     public void ChangeInitialPosition(Vector3 newPosition, int row, int column)
@@ -69,7 +78,12 @@ public class DraggablePiece : MonoBehaviour
 		blockers = 1;
 
         EvaluateColor();
-	}
+
+        if (blockers == 0)
+            pieceState = PieceState.Set;
+        else
+            pieceState = PieceState.Invalid;
+    }
 
 	private void OnTriggerExit(Collider other)
     {
@@ -77,16 +91,23 @@ public class DraggablePiece : MonoBehaviour
             blockers = 0;
 
         EvaluateColor();
+
+        if (blockers == 0)
+            pieceState = PieceState.Set;
+        else
+            pieceState = PieceState.Invalid;
     }
 
 	private void EvaluateColor()
 	{
 		if (blockers == 0)
 		{
-			if(isDragging)
-				image.material.color = Color.yellow;
-			else
-				image.material.color = Color.white;
+            if (isDragging)
+                image.material.color = Color.yellow;
+            else
+            {
+                image.material.color = Color.white;
+            }
 		}
 		else
 			image.material.color = Color.red;

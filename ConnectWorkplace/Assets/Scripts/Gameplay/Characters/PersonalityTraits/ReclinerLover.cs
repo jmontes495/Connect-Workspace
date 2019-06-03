@@ -9,19 +9,23 @@ public class ReclinerLover : PersonalTrait
         traitType = TypeOfPersonality.ReclinerLover;
     }
 
-    public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
+    public override EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
-            return TypesOfReaction.None;
+        EmployeeReaction employeeReaction = new EmployeeReaction();
+        employeeReaction.reaction = TypesOfReaction.None;
 
-        TypesOfReaction reaction = TypesOfReaction.None;
+        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
+            return employeeReaction;
+
         if (CheckIfAffectingPosition(theirPosition))
         {
             affectee.ReduceProductivityBy(3f);
-            reaction = TypesOfReaction.ChairClash;
+            employeeReaction.reaction = TypesOfReaction.ChairClash;
+            employeeReaction.value = -3f;
+            employeeReaction.employee = affectee.GetEmployee();
             Debug.LogError(gameObject.name + " hit with the chair " + affectee.gameObject.name);
         }
-        return reaction;
+        return employeeReaction;
 
     }
 

@@ -14,7 +14,7 @@ public class ReactionBubble : MonoBehaviour
 
     private Quaternion originalRotation;
 
-    void Start()
+    void Awake()
     {
         bubble = gameObject;
         bubble.transform.DOScale(Vector3.zero,0);

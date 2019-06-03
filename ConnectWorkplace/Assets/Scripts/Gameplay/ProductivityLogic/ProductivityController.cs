@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class ProductivityController : MonoBehaviour
 {
+    public delegate void ProductivityEvents();
+    public static event ProductivityEvents InitialProductivityCalculated;
+    public static event ProductivityEvents StartedProductivityCalculation;
+    public static event ProductivityEvents ProductivityIncreased;
+    public static event ProductivityEvents ProductivityDecreased;
+    public static event ProductivityEvents FinishedProductivityCalculation;
+
     private BaseEmployee[] employees;
 
     private bool productivityHasBeenCalculated;
@@ -12,12 +19,37 @@ public class ProductivityController : MonoBehaviour
 
     private ReactionBubble reactionBubble;
 
+    public static ProductivityController instance = null;
+    
+    private float currentProductivity;
+    private float totalProductivity;
+
+    public float CurrentProductivity
+    {
+        get { return currentProductivity; }
+    }
+
+    public float TotalProductivity
+    {
+        get { return totalProductivity; }
+    }
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+
+        else if (instance != this)
+            Destroy(gameObject);
+    }
+
     void Start()
     {
         employees = GetComponentsInChildren<BaseEmployee>();
         reactionsPending = new List<EmployeeReaction>();
         reactionBubble = GetComponentInChildren<ReactionBubble>();
         HideReaction();
+        CalculateProductivity();
     }
 
     void Update()
@@ -28,6 +60,17 @@ public class ProductivityController : MonoBehaviour
             productivityHasBeenCalculated = true;
             StartCoroutine(ShowReactions());
         }
+    }
+
+    private void CalculateProductivity()
+    {
+        currentProductivity = 0;
+        foreach (BaseEmployee employee in employees)
+        {
+            currentProductivity += employee.GetProductivity();
+        }
+        totalProductivity = currentProductivity;
+        InitialProductivityCalculated();
     }
 
     private void CalculateReactions()
@@ -53,17 +96,12 @@ public class ProductivityController : MonoBehaviour
     private void AffectEmployeeWithTrait(BaseEmployee theEmployee, PersonalTrait theTrait)
     {
         PersonalTrait[] employeeTraits = theEmployee.GetComponents<PersonalTrait>();
-        TypesOfReaction reaction = TypesOfReaction.None;
         foreach (PersonalTrait trait in employeeTraits)
         {
-            reaction = theTrait.AffectOther(trait, trait.GetPosition());
-
-            if (reaction != TypesOfReaction.None)
+            EmployeeReaction reaction = theTrait.AffectOther(trait, trait.GetPosition());
+            if (reaction.reaction != TypesOfReaction.None)
             {
-                EmployeeReaction reacted = new EmployeeReaction();
-                reacted.reaction = reaction;
-                reacted.employee = theEmployee;
-                reactionsPending.Add(reacted);
+                reactionsPending.Add(reaction);
                 return;
             }
         }
@@ -71,15 +109,25 @@ public class ProductivityController : MonoBehaviour
 
     private IEnumerator ShowReactions()
     {
+        StartedProductivityCalculation();
         yield return new WaitForSeconds(1f);
         while (reactionsPending.Count > 0)
         {
             EmployeeReaction topReaction = reactionsPending[0];
             reactionsPending.Remove(topReaction);
             ShowReaction(topReaction.employee, topReaction.reaction);
+            currentProductivity += topReaction.value;
+
+            if (topReaction.value > 0)
+                ProductivityIncreased();
+            else
+                ProductivityDecreased();
+
             yield return new WaitForSeconds(3f);
             HideReaction();
         }
+
+        FinishedProductivityCalculation();
     }
 
     public void ShowReaction(BaseEmployee employee, TypesOfReaction reaction)

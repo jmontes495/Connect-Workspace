@@ -7,8 +7,8 @@ public class BaseEmployee : MonoBehaviour
 {
     [SerializeField]
     private Color idColor;
-
-    private float productivity; //Value between 1 and 100
+    
+    private float productivity; //Value between 1 and 10
 
     private GridPosition currentPosition;
 
@@ -17,6 +17,7 @@ public class BaseEmployee : MonoBehaviour
 
     private void Start()
     {
+        productivity = 10;
         currentPosition = new GridPosition();
         currentPosition.Initialize(initialFacing);
         if (GetComponent<StaticGridPosition>() != null)
@@ -41,5 +42,10 @@ public class BaseEmployee : MonoBehaviour
     public Color GetColor()
     {
         return idColor;
+    }
+
+    public float GetProductivity()
+    {
+        return productivity;
     }
 }

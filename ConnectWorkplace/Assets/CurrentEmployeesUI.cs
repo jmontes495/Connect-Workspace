@@ -16,6 +16,8 @@ public class CurrentEmployeesUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ProductivityController.StartedProductivityCalculation += HideUI;
+
         namesContainer = GetComponent<RectTransform>();
         employees = Object.FindObjectsOfType<BaseEmployee>();
         foreach (BaseEmployee currentEmployee in employees)
@@ -34,5 +36,10 @@ public class CurrentEmployeesUI : MonoBehaviour
     {
         employeeDetailInfo.gameObject.SetActive(true);
         employeeDetailInfo.SetInfo(employeeOfInterest);
+    }
+
+    private void HideUI()
+    {
+        gameObject.SetActive(false);
     }
 }

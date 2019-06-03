@@ -9,13 +9,19 @@ public class SuperSerious : PersonalTrait
         traitType = TypeOfPersonality.SuperSerious;
     }
 
-    public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
+    public override EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
+        EmployeeReaction employeeReaction = new EmployeeReaction();
+        employeeReaction.reaction = TypesOfReaction.None;
+
         if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
-            return TypesOfReaction.None;
+            return employeeReaction;
 
         affectee.ReduceProductivityBy(4f);
-        return TypesOfReaction.Stressful;
+        employeeReaction.reaction = TypesOfReaction.Stressful;
+        employeeReaction.value = -4f;
+        employeeReaction.employee = affectee.GetEmployee();
+        return employeeReaction;
     }
 
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)

@@ -9,9 +9,11 @@ public class SoundSensible : PersonalTrait
         traitType = TypeOfPersonality.SoundSensible;
     }
 
-    public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
+    public override EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        return TypesOfReaction.None;
+        EmployeeReaction employeeReaction = new EmployeeReaction();
+        employeeReaction.reaction = TypesOfReaction.None;
+        return employeeReaction;
     }
 
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)

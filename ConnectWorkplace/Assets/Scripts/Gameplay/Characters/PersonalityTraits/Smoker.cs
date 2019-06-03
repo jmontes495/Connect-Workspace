@@ -9,19 +9,23 @@ public class Smoker : PersonalTrait
         traitType = TypeOfPersonality.Smoker;
     }
 
-    public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
+    public override EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
-            return TypesOfReaction.None;
+        EmployeeReaction employeeReaction = new EmployeeReaction();
+        employeeReaction.reaction = TypesOfReaction.None;
 
-        TypesOfReaction reaction = TypesOfReaction.None;
+        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
+            return employeeReaction;
+
         if (CheckIfAffectingPosition(theirPosition) && !IsSmoker(affectee))
         {
             affectee.ReduceProductivityBy(6f);
-            reaction = TypesOfReaction.AnnoyingSmoke;
+            employeeReaction.reaction = TypesOfReaction.AnnoyingSmoke;
+            employeeReaction.value = -6f;
+            employeeReaction.employee = affectee.GetEmployee();
             Debug.LogError(gameObject.name + " contaminated the air of " + affectee.gameObject.name);
         }
-        return reaction;
+        return employeeReaction;
     }
 
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)

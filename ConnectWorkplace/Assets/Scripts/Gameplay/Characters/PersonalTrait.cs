@@ -14,9 +14,9 @@ public class PersonalTrait : MonoBehaviour
         employee = GetComponent<BaseEmployee>();
     }
 
-    public virtual TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
+    public virtual EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        return TypesOfReaction.None;
+        return null;
     }
 
     public virtual void ReduceProductivityBy(float productivityLost)

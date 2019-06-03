@@ -9,27 +9,32 @@ public class Pyromaniac : PersonalTrait
         traitType = TypeOfPersonality.Pyromaniac;
     }
 
-    public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
+    public override EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        TypesOfReaction reaction = TypesOfReaction.None;
+        EmployeeReaction employeeReaction = new EmployeeReaction();
+        employeeReaction.reaction = TypesOfReaction.None;
 
         if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
-            return TypesOfReaction.None;
+            return employeeReaction;
 
         if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.PaperFolder)
         {
             affectee.ReduceProductivityBy(6f);
-            reaction = TypesOfReaction.BurntOrigami;
+            employeeReaction.reaction = TypesOfReaction.BurntOrigami;
+            employeeReaction.value = -6f;
+            employeeReaction.employee = affectee.GetEmployee();
             Debug.LogError(gameObject.name + " almost burned the figurines of " + affectee.gameObject.name);
         }
         else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.Smoker)
         {
             affectee.IncreaseProductivityBy(3f);
-            reaction = TypesOfReaction.LitCigarrette;
+            employeeReaction.reaction = TypesOfReaction.LitCigarrette;
+            employeeReaction.value = 3f;
+            employeeReaction.employee = affectee.GetEmployee();
             Debug.LogError(gameObject.name + " lit the cigarretes of " + affectee.gameObject.name);
         }
 
-        return reaction;
+        return employeeReaction;
     }
     
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)

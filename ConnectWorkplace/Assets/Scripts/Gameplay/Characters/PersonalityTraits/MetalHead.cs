@@ -9,25 +9,31 @@ public class MetalHead : PersonalTrait
         traitType = TypeOfPersonality.Metalhead;
     }
 
-    public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
+    public override EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
-            return TypesOfReaction.None;
+        EmployeeReaction employeeReaction = new EmployeeReaction();
+        employeeReaction.reaction = TypesOfReaction.None;
 
-        TypesOfReaction reaction = TypesOfReaction.None;
+        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
+            return employeeReaction;
+
         if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.SoundSensible)
         {
             affectee.ReduceProductivityBy(4f);
-            reaction = TypesOfReaction.AnnoyingNoise;
+            employeeReaction.reaction = TypesOfReaction.AnnoyingNoise;
+            employeeReaction.value = -4f;
+            employeeReaction.employee = affectee.GetEmployee();
             Debug.LogError(gameObject.name + " with the music annoyed " + affectee.gameObject.name);
         }
         else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.Metalhead)
         {
             affectee.IncreaseProductivityBy(5f);
-            reaction = TypesOfReaction.GoodMusic;
+            employeeReaction.reaction = TypesOfReaction.GoodMusic;
+            employeeReaction.value = 5f;
+            employeeReaction.employee = affectee.GetEmployee();
             Debug.LogError(gameObject.name + " shared Ramnstein songs with " + affectee.gameObject.name);
         }
-        return reaction;
+        return employeeReaction;
     }
     
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)

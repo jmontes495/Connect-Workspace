@@ -7,4 +7,6 @@ public class EmployeeReaction
     public BaseEmployee employee;
 
     public TypesOfReaction reaction;
+
+    public float value;
 }

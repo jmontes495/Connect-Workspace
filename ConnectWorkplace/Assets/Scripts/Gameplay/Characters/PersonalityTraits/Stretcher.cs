@@ -9,30 +9,38 @@ public class Stretcher : PersonalTrait
         traitType = TypeOfPersonality.TheStretcher;
     }
 
-    public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
+    public override EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
-            return TypesOfReaction.None;
+        EmployeeReaction employeeReaction = new EmployeeReaction();
+        employeeReaction.reaction = TypesOfReaction.None;
 
-        TypesOfReaction reaction = TypesOfReaction.None;
+        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
+            return employeeReaction;
+
         if (CheckIfAffectingPosition(theirPosition) && (affectee.GetTraitType() == TypeOfPersonality.Otaku || affectee.GetTraitType() == TypeOfPersonality.PaperFolder || affectee.GetTraitType() == TypeOfPersonality.Thirstee))
         {
             affectee.ReduceProductivityBy(3f);
             switch (affectee.GetTraitType())
             {
                 case TypeOfPersonality.Otaku:
-                    reaction = TypesOfReaction.KnockedFigures;
+                    employeeReaction.reaction = TypesOfReaction.KnockedFigures;
+                    employeeReaction.value = -3f;
+                    employeeReaction.employee = affectee.GetEmployee();
                     break;
                 case TypeOfPersonality.PaperFolder:
-                    reaction = TypesOfReaction.KnockedOrigami;
+                    employeeReaction.reaction = TypesOfReaction.KnockedOrigami;
+                    employeeReaction.value = -3f;
+                    employeeReaction.employee = affectee.GetEmployee();
                     break;
                 case TypeOfPersonality.Thirstee:
-                    reaction = TypesOfReaction.KnockedWater;
+                    employeeReaction.reaction = TypesOfReaction.KnockedWater;
+                    employeeReaction.value = -3f;
+                    employeeReaction.employee = affectee.GetEmployee();
                     break;
             }
             Debug.LogError(gameObject.name + " knocked down the stuff of " + affectee.gameObject.name);
         }
-        return reaction;
+        return employeeReaction;
 
     }
 
