@@ -6,12 +6,12 @@ public class LongLegs : PersonalTrait
 {
     private void Start()
     {
-        traitType = PersonalityTrait.LongLegs;
+        traitType = TypeOfPersonality.LongLegs;
     }
 
     public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
+        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
             return TypesOfReaction.None;
 
         TypesOfReaction reaction = TypesOfReaction.None;

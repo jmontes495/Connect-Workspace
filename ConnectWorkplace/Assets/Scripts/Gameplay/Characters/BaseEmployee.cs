@@ -5,6 +5,9 @@ using static GridPosition;
 
 public class BaseEmployee : MonoBehaviour
 {
+    [SerializeField]
+    private Color idColor;
+
     private float productivity; //Value between 1 and 100
 
     private GridPosition currentPosition;
@@ -33,5 +36,10 @@ public class BaseEmployee : MonoBehaviour
     public GridPosition GetPosition()
     {
         return currentPosition;
+    }
+
+    public Color GetColor()
+    {
+        return idColor;
     }
 }

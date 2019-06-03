@@ -6,23 +6,23 @@ public class Pyromaniac : PersonalTrait
 {
     private void Start()
     {
-        traitType = PersonalityTrait.Pyromaniac;
+        traitType = TypeOfPersonality.Pyromaniac;
     }
 
     public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
         TypesOfReaction reaction = TypesOfReaction.None;
 
-        if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
+        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
             return TypesOfReaction.None;
 
-        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.PaperFolder)
+        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.PaperFolder)
         {
             affectee.ReduceProductivityBy(6f);
             reaction = TypesOfReaction.BurntOrigami;
             Debug.LogError(gameObject.name + " almost burned the figurines of " + affectee.gameObject.name);
         }
-        else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.Smoker)
+        else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.Smoker)
         {
             affectee.IncreaseProductivityBy(3f);
             reaction = TypesOfReaction.LitCigarrette;

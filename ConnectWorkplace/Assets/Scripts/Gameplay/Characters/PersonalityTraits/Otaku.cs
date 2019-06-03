@@ -6,14 +6,14 @@ public class Otaku : PersonalTrait
 {
     private void Start()
     {
-        traitType = PersonalityTrait.Otaku;
+        traitType = TypeOfPersonality.Otaku;
     }
 
     public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
         TypesOfReaction reaction = TypesOfReaction.None;
 
-        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.Otaku)
+        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.Otaku)
         {
             affectee.IncreaseProductivityBy(5f);
             reaction = TypesOfReaction.GoodAnime;

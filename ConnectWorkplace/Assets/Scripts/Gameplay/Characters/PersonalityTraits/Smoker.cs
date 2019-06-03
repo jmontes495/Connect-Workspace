@@ -6,12 +6,12 @@ public class Smoker : PersonalTrait
 {
     private void Start()
     {
-        traitType = PersonalityTrait.Smoker;
+        traitType = TypeOfPersonality.Smoker;
     }
 
     public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
+        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
             return TypesOfReaction.None;
 
         TypesOfReaction reaction = TypesOfReaction.None;
@@ -34,7 +34,7 @@ public class Smoker : PersonalTrait
         PersonalTrait[] employeeTraits = affectee.gameObject.GetComponents<PersonalTrait>();
         foreach (PersonalTrait trait in employeeTraits)
         {
-            if (trait.GetTraitType() == PersonalityTrait.Smoker)
+            if (trait.GetTraitType() == TypeOfPersonality.Smoker)
             {
                 return true;
             }

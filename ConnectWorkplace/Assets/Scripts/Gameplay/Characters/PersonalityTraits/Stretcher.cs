@@ -6,27 +6,27 @@ public class Stretcher : PersonalTrait
 {
     private void Start()
     {
-        traitType = PersonalityTrait.TheStretcher;
+        traitType = TypeOfPersonality.TheStretcher;
     }
 
     public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
+        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
             return TypesOfReaction.None;
 
         TypesOfReaction reaction = TypesOfReaction.None;
-        if (CheckIfAffectingPosition(theirPosition) && (affectee.GetTraitType() == PersonalityTrait.Otaku || affectee.GetTraitType() == PersonalityTrait.PaperFolder || affectee.GetTraitType() == PersonalityTrait.Thirstee))
+        if (CheckIfAffectingPosition(theirPosition) && (affectee.GetTraitType() == TypeOfPersonality.Otaku || affectee.GetTraitType() == TypeOfPersonality.PaperFolder || affectee.GetTraitType() == TypeOfPersonality.Thirstee))
         {
             affectee.ReduceProductivityBy(3f);
             switch (affectee.GetTraitType())
             {
-                case PersonalityTrait.Otaku:
+                case TypeOfPersonality.Otaku:
                     reaction = TypesOfReaction.KnockedFigures;
                     break;
-                case PersonalityTrait.PaperFolder:
+                case TypeOfPersonality.PaperFolder:
                     reaction = TypesOfReaction.KnockedOrigami;
                     break;
-                case PersonalityTrait.Thirstee:
+                case TypeOfPersonality.Thirstee:
                     reaction = TypesOfReaction.KnockedWater;
                     break;
             }

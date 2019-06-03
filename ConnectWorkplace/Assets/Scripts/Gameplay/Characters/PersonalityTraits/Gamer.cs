@@ -6,22 +6,22 @@ public class Gamer : PersonalTrait
 {
     private void Start()
     {
-        traitType = PersonalityTrait.Gamer;
+        traitType = TypeOfPersonality.Gamer;
     }
 
     public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
         TypesOfReaction reaction = TypesOfReaction.None; 
-        if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
+        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
             return TypesOfReaction.None;
 
-        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.Otaku)
+        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.Otaku)
         {
             affectee.IncreaseProductivityBy(2f);
             reaction = TypesOfReaction.GoodGames;
             Debug.LogError(gameObject.name + " talked about Death Stranding with " + affectee.gameObject.name);
         }
-        else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.SoundSensible)
+        else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.SoundSensible)
         {
             affectee.ReduceProductivityBy(3f);
             reaction = TypesOfReaction.AnnoyingNoise;

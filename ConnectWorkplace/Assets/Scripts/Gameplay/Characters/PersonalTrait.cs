@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class PersonalTrait : MonoBehaviour
 {
-    public enum PersonalityTrait { LongLegs, ReclinerLover, TheStretcher, Otaku, PaperFolder, Thirstee, Metalhead, Smoker, SmellyPants, SoundSensible, OlorSensible, Gamer, Pyromaniac, SuperSerious };
-    
-    protected PersonalityTrait traitType;
+    protected TypeOfPersonality traitType;
 
     [SerializeField]
     protected BaseEmployee employee;
@@ -111,7 +109,7 @@ public class PersonalTrait : MonoBehaviour
         return employee.GetPosition();
     }
 
-    public PersonalityTrait GetTraitType()
+    public TypeOfPersonality GetTraitType()
     {
         return traitType;
     }

@@ -6,22 +6,22 @@ public class MetalHead : PersonalTrait
 {
     private void Start()
     {
-        traitType = PersonalityTrait.Metalhead;
+        traitType = TypeOfPersonality.Metalhead;
     }
 
     public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
     {
-        if (affectee.GetTraitType() == PersonalityTrait.SuperSerious)
+        if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
             return TypesOfReaction.None;
 
         TypesOfReaction reaction = TypesOfReaction.None;
-        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.SoundSensible)
+        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.SoundSensible)
         {
             affectee.ReduceProductivityBy(4f);
             reaction = TypesOfReaction.AnnoyingNoise;
             Debug.LogError(gameObject.name + " with the music annoyed " + affectee.gameObject.name);
         }
-        else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.Metalhead)
+        else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.Metalhead)
         {
             affectee.IncreaseProductivityBy(5f);
             reaction = TypesOfReaction.GoodMusic;

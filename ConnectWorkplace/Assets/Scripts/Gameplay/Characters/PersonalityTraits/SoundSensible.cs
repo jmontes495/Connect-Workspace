@@ -6,7 +6,7 @@ public class SoundSensible : PersonalTrait
 {
     private void Start()
     {
-        traitType = PersonalityTrait.SoundSensible;
+        traitType = TypeOfPersonality.SoundSensible;
     }
 
     public override TypesOfReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)
