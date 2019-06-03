@@ -8,9 +8,9 @@ using UnityEngine.UI;
 public class GoToLevelButton : MonoBehaviour
 {
     [SerializeField]
-    private LevelName level = LevelName.OfficeGrid;
+    private LevelName level = LevelName.LevelSelect;
 
-    private Button button;
+    protected Button button;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class GoToLevelButton : MonoBehaviour
         button.onClick.AddListener(GoToLevel);
     }
 
-    private void GoToLevel()
+    protected void GoToLevel()
     {
         if (Application.CanStreamedLevelBeLoaded("" + level))
             SceneManager.LoadScene("" + level);
