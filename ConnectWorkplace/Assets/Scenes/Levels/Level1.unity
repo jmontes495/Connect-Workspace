@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1612,22 +1612,27 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1992667593}
-    - target: {fileID: 4281407987777062908, guid: 0270b3631a9d0d64c8a0628000860612,
+    - target: {fileID: 2404623506596755560, guid: 0270b3631a9d0d64c8a0628000860612,
         type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4281407987777062908, guid: 0270b3631a9d0d64c8a0628000860612,
+    - target: {fileID: 2404623506596755560, guid: 0270b3631a9d0d64c8a0628000860612,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2404623506596755560, guid: 0270b3631a9d0d64c8a0628000860612,
+    - target: {fileID: 4281407988892931818, guid: 0270b3631a9d0d64c8a0628000860612,
+        type: 3}
+      propertyPath: goalProductivity
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281407987777062908, guid: 0270b3631a9d0d64c8a0628000860612,
         type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2404623506596755560, guid: 0270b3631a9d0d64c8a0628000860612,
+    - target: {fileID: 4281407987777062908, guid: 0270b3631a9d0d64c8a0628000860612,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
