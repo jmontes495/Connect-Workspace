@@ -9,6 +9,7 @@ public class EmployeeNameUI : MonoBehaviour
     [SerializeField]
     private Button infoButton;
 
+    [SerializeField]
     private TextMeshProUGUI employeeName;
 
     private CurrentEmployeesUI listController;
@@ -17,7 +18,6 @@ public class EmployeeNameUI : MonoBehaviour
 
     public void InitializeEmployee(BaseEmployee theEmployee, CurrentEmployeesUI theController)
     {
-        employeeName = GetComponent<TextMeshProUGUI>();
         employee = theEmployee;
         listController = theController;
         infoButton.onClick.RemoveAllListeners();
