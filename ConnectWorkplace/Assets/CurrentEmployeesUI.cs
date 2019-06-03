@@ -42,4 +42,9 @@ public class CurrentEmployeesUI : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    private void OnDestroy()
+    {
+        ProductivityController.StartedProductivityCalculation -= HideUI;
+    }
 }

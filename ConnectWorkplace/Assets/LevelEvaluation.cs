@@ -58,6 +58,8 @@ public class LevelEvaluation : MonoBehaviour
                 return;
             }
         }
+
+        Debug.LogWarning("reached here", gameObject);
         startDayButton.gameObject.SetActive(true);
     }
 
@@ -97,5 +99,16 @@ public class LevelEvaluation : MonoBehaviour
         {
             finalResult.text = "OOPS, PRESS 'N' TO RETRY";
         }
+    }
+
+    private void OnDestroy()
+    {
+        ProductivityController.InitialProductivityCalculated -= SetInitialProductivity;
+        ProductivityController.StartedProductivityCalculation -= HideButton;
+        ProductivityController.ProductivityDecreased -= ReducedProductivity;
+        ProductivityController.ProductivityIncreased -= IncreasedProductivity;
+        ProductivityController.ProductivityIncreased -= IncreasedProductivity;
+        ProductivityController.FinishedProductivityCalculation -= SetFinalResult;
+        DraggablePiece.SetPiece -= EvaluateButton;
     }
 }
