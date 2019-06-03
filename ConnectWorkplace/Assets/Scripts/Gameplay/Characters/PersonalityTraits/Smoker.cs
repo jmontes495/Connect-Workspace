@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Smoker : PersonalTrait
 {
-    private void Start()
+    override protected void Start()
     {
         traitType = TypeOfPersonality.Smoker;
+        base.Start();
     }
 
     public override EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)

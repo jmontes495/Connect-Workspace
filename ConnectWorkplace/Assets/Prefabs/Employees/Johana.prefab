@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 849797268788113268}
   - component: {fileID: 2271644332617004615}
   - component: {fileID: 6761620407816214868}
+  - component: {fileID: 9205858162373364178}
   m_Layer: 10
   m_Name: Johana
   m_TagString: Piece
@@ -172,6 +173,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   employee: {fileID: 0}
+--- !u!114 &9205858162373364178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849797268788113276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b77c583087ab5844fbd80cd8e50fbdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationConfiguration: {fileID: 11400000, guid: a2cbe72a53298f1459620c7cb640081e,
+    type: 2}
+  mainAnimator: {fileID: 3955164539507858669}
 --- !u!1001 &4271996854950624920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,6 +275,12 @@ PrefabInstance:
 --- !u!4 &9010615743017099507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5063468501293424235, guid: 5eadcf5a476b97549af7345debab84ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 4271996854950624920}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3955164539507858669 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 984810231462404725, guid: 5eadcf5a476b97549af7345debab84ca,
     type: 3}
   m_PrefabInstance: {fileID: 4271996854950624920}
   m_PrefabAsset: {fileID: 0}

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ReclinerLover : PersonalTrait
 {
-    private void Start()
+    override protected void Start()
     {
         traitType = TypeOfPersonality.ReclinerLover;
+        base.Start();
     }
 
     public override EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)

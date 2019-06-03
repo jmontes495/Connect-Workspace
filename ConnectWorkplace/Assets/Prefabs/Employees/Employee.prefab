@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 7280549390683029286}
   - component: {fileID: 7280549390683029287}
   - component: {fileID: 7280549390683029291}
+  - component: {fileID: 2744532161030165173}
   m_Layer: 10
   m_Name: Employee
   m_TagString: Piece
@@ -294,6 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTransform: {fileID: 0}
+  pieceState: 0
 --- !u!114 &7280549390683029291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,7 +308,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91934695abcd683438b2b03677b8ef7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idColor: {r: 0, g: 0, b: 0, a: 0}
   initialFacing: 0
+--- !u!114 &2744532161030165173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280549390683029283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b77c583087ab5844fbd80cd8e50fbdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationConfiguration: {fileID: 11400000, guid: a2cbe72a53298f1459620c7cb640081e,
+    type: 2}
+  mainAnimator: {fileID: 8537124788777900484}
 --- !u!1001 &7280549390327685951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -394,6 +412,12 @@ PrefabInstance:
 --- !u!4 &2543611157253619028 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5063468501293424235, guid: d1c9ec333c7d45b4eaf6ddb73998b0b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 7280549390327685951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8537124788777900484 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1400690794299587323, guid: d1c9ec333c7d45b4eaf6ddb73998b0b6,
     type: 3}
   m_PrefabInstance: {fileID: 7280549390327685951}
   m_PrefabAsset: {fileID: 0}

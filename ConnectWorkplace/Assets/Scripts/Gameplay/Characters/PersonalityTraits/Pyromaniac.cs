@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Pyromaniac : PersonalTrait
 {
-    private void Start()
+    override protected void Start()
     {
         traitType = TypeOfPersonality.Pyromaniac;
+        base.Start();
     }
 
     public override EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)

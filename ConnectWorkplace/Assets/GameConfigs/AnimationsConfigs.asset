@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c394d604c48fc4b44885668d2e27dbdc, type: 3}
-  m_Name: GameFeaturesConfig
+  m_Name: AnimationsConfigs
   m_EditorClassIdentifier: 
   characterAnimations:
   - personality: Kick

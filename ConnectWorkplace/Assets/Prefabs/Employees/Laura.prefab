@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2348893429012104319}
   - component: {fileID: 8237471948117158036}
   - component: {fileID: 4987720650914237044}
+  - component: {fileID: 9118683383621391035}
   m_Layer: 10
   m_Name: Laura
   m_TagString: Piece
@@ -186,6 +187,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   employee: {fileID: 0}
+--- !u!114 &9118683383621391035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821864827568051770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b77c583087ab5844fbd80cd8e50fbdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationConfiguration: {fileID: 11400000, guid: a2cbe72a53298f1459620c7cb640081e,
+    type: 2}
+  mainAnimator: {fileID: 388520214973173351}
 --- !u!1001 &634711382234000402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273,6 +289,12 @@ PrefabInstance:
 --- !u!4 &5659898169971782265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5063468501293424235, guid: 5eadcf5a476b97549af7345debab84ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 634711382234000402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &388520214973173351 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 984810231462404725, guid: 5eadcf5a476b97549af7345debab84ca,
     type: 3}
   m_PrefabInstance: {fileID: 634711382234000402}
   m_PrefabAsset: {fileID: 0}

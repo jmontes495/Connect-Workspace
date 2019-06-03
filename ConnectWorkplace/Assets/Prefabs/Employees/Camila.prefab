@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7736022959525190438}
   - component: {fileID: 5157669552715214688}
   - component: {fileID: 678476746909331352}
+  - component: {fileID: 6146578874360002481}
   m_Layer: 10
   m_Name: Camila
   m_TagString: Piece
@@ -172,6 +173,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   employee: {fileID: 0}
+--- !u!114 &6146578874360002481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7736022959525190446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b77c583087ab5844fbd80cd8e50fbdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationConfiguration: {fileID: 11400000, guid: a2cbe72a53298f1459620c7cb640081e,
+    type: 2}
+  mainAnimator: {fileID: 8545841777932595746}
 --- !u!1001 &8877248394903539799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,6 +275,12 @@ PrefabInstance:
 --- !u!4 &4429113933430296124 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5063468501293424235, guid: 5eadcf5a476b97549af7345debab84ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 8877248394903539799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8545841777932595746 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 984810231462404725, guid: 5eadcf5a476b97549af7345debab84ca,
     type: 3}
   m_PrefabInstance: {fileID: 8877248394903539799}
   m_PrefabAsset: {fileID: 0}

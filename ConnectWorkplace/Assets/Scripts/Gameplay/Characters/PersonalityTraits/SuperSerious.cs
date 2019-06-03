@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SuperSerious : PersonalTrait
 {
-    private void Start()
+    override protected void Start()
     {
         traitType = TypeOfPersonality.SuperSerious;
+        base.Start();
     }
 
     public override EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)

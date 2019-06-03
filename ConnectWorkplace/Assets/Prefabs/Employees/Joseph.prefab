@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4388619932817412555}
   - component: {fileID: 4344133551412603358}
   - component: {fileID: 1764559002305658974}
+  - component: {fileID: 2152198782452032358}
   m_Layer: 10
   m_Name: Joseph
   m_TagString: Piece
@@ -172,6 +173,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   employee: {fileID: 0}
+--- !u!114 &2152198782452032358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388619932817412547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b77c583087ab5844fbd80cd8e50fbdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationConfiguration: {fileID: 11400000, guid: a2cbe72a53298f1459620c7cb640081e,
+    type: 2}
+  mainAnimator: {fileID: 4008118461172782672}
 --- !u!1001 &2661612373521034411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,6 +275,12 @@ PrefabInstance:
 --- !u!4 &7109776008638116544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5063468501293424235, guid: d1c9ec333c7d45b4eaf6ddb73998b0b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2661612373521034411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4008118461172782672 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1400690794299587323, guid: d1c9ec333c7d45b4eaf6ddb73998b0b6,
     type: 3}
   m_PrefabInstance: {fileID: 2661612373521034411}
   m_PrefabAsset: {fileID: 0}

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1968691744158170838}
   - component: {fileID: 1740122791346706939}
   - component: {fileID: 109587970245158725}
+  - component: {fileID: 2429963039414985292}
   m_Layer: 10
   m_Name: Philip
   m_TagString: Piece
@@ -186,6 +187,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   employee: {fileID: 0}
+--- !u!114 &2429963039414985292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818585266070487280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b77c583087ab5844fbd80cd8e50fbdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationConfiguration: {fileID: 11400000, guid: a2cbe72a53298f1459620c7cb640081e,
+    type: 2}
+  mainAnimator: {fileID: 6739985246938250540}
 --- !u!1001 &5690715962681214935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273,6 +289,12 @@ PrefabInstance:
 --- !u!4 &629503126897629628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5063468501293424235, guid: d1c9ec333c7d45b4eaf6ddb73998b0b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5690715962681214935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6739985246938250540 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1400690794299587323, guid: d1c9ec333c7d45b4eaf6ddb73998b0b6,
     type: 3}
   m_PrefabInstance: {fileID: 5690715962681214935}
   m_PrefabAsset: {fileID: 0}

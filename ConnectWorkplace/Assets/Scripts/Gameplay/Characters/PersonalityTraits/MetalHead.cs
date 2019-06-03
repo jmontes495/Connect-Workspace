@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MetalHead : PersonalTrait
 {
-    private void Start()
+    override protected void Start()
     {
         traitType = TypeOfPersonality.Metalhead;
+        base.Start();
     }
 
     public override EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)

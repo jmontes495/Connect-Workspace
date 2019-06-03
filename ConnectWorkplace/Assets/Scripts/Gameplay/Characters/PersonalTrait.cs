@@ -1,17 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PersonalTrait : MonoBehaviour
 {
     protected TypeOfPersonality traitType;
+    private AnimatorManager animatorManager;
 
     [SerializeField]
     protected BaseEmployee employee;
 
-    private void Start()
+    protected virtual void Start()
     {
         employee = GetComponent<BaseEmployee>();
+        animatorManager = GetComponent<AnimatorManager>();
+        animatorManager.Initialize(traitType);
     }
 
     public virtual EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)

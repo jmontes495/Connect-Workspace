@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7890247959572245331}
   - component: {fileID: 8315804053075174619}
   - component: {fileID: 6772582747556077524}
+  - component: {fileID: 3294608771403248849}
   m_Layer: 10
   m_Name: Sebastian
   m_TagString: Piece
@@ -172,6 +173,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   employee: {fileID: 0}
+--- !u!114 &3294608771403248849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7890247959572245339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b77c583087ab5844fbd80cd8e50fbdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationConfiguration: {fileID: 11400000, guid: a2cbe72a53298f1459620c7cb640081e,
+    type: 2}
+  mainAnimator: {fileID: 7655591139145770436}
 --- !u!1001 &8741028720888487743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,6 +275,12 @@ PrefabInstance:
 --- !u!4 &4542815397748064596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5063468501293424235, guid: d1c9ec333c7d45b4eaf6ddb73998b0b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8741028720888487743}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7655591139145770436 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1400690794299587323, guid: d1c9ec333c7d45b4eaf6ddb73998b0b6,
     type: 3}
   m_PrefabInstance: {fileID: 8741028720888487743}
   m_PrefabAsset: {fileID: 0}

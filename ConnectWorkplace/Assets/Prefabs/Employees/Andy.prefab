@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1970872066408374596}
   - component: {fileID: 1970872066408374600}
   - component: {fileID: 1600114768056823459}
+  - component: {fileID: 4644134092559824344}
   m_Layer: 10
   m_Name: Andy
   m_TagString: Piece
@@ -158,6 +159,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   employee: {fileID: 0}
+--- !u!114 &4644134092559824344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970872066408374592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b77c583087ab5844fbd80cd8e50fbdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationConfiguration: {fileID: 11400000, guid: a2cbe72a53298f1459620c7cb640081e,
+    type: 2}
+  mainAnimator: {fileID: 9173287864595094550}
 --- !u!1001 &7799760041752749805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -245,6 +261,12 @@ PrefabInstance:
 --- !u!4 &3061143350465542278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5063468501293424235, guid: d1c9ec333c7d45b4eaf6ddb73998b0b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 7799760041752749805}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &9173287864595094550 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1400690794299587323, guid: d1c9ec333c7d45b4eaf6ddb73998b0b6,
     type: 3}
   m_PrefabInstance: {fileID: 7799760041752749805}
   m_PrefabAsset: {fileID: 0}
