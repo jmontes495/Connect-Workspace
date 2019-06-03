@@ -93,11 +93,11 @@ public class LevelEvaluation : MonoBehaviour
         finalResult.transform.parent.gameObject.SetActive(true);
         if (ProductivityController.instance.CurrentProductivity >= goalProductivity)
         {
-            finalResult.text = "YOU DID IT YAY!";
+            finalResult.text = "DAY COMPLETED PRODUCTIVELY.";
         }
         else
         {
-            finalResult.text = "OOPS, PRESS 'N' TO RETRY";
+            finalResult.text = "PRODUCTIVITY INSUFFICIENT. <br>PRESS 'N' TO RETRY.";
         }
     }
 
