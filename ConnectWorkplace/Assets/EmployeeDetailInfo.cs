@@ -28,7 +28,10 @@ public class EmployeeDetailInfo : MonoBehaviour
     }
     public void SetInfo(BaseEmployee theEmployee)
     {
+        exitButton.onClick.RemoveAllListeners();
+        exitButton.onClick.AddListener(Close);
         employeeName.text = theEmployee.gameObject.name;
+        employeeName.color = theEmployee.GetColor();
         PersonalTrait[] employeeTraits = theEmployee.GetComponents<PersonalTrait>();
         trait1.text = employeeTraits.Length >= 1 && employeeTraits[0] != null ? PersonalityDescription.GetTraitDescription(employeeTraits[0].GetTraitType()) : "";
         trait2.text = employeeTraits.Length >= 2 && employeeTraits[1] != null ? PersonalityDescription.GetTraitDescription(employeeTraits[1].GetTraitType()) : "";
