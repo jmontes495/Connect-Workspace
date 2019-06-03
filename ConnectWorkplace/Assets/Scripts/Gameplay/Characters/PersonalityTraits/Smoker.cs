@@ -15,7 +15,7 @@ public class Smoker : PersonalTrait
             return TypesOfReaction.None;
 
         TypesOfReaction reaction = TypesOfReaction.None;
-        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() != PersonalityTrait.Smoker)
+        if (CheckIfAffectingPosition(theirPosition) && !IsSmoker(affectee))
         {
             affectee.ReduceProductivityBy(6f);
             reaction = TypesOfReaction.AnnoyingSmoke;
@@ -27,5 +27,18 @@ public class Smoker : PersonalTrait
     protected override bool CheckIfAffectingPosition(GridPosition theirPosition)
     {
         return CheckSides(theirPosition);
+    }
+
+    private bool IsSmoker(PersonalTrait affectee)
+    {
+        PersonalTrait[] employeeTraits = affectee.gameObject.GetComponents<PersonalTrait>();
+        foreach (PersonalTrait trait in employeeTraits)
+        {
+            if (trait.GetTraitType() == PersonalityTrait.Smoker)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

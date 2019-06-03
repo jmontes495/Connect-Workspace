@@ -15,7 +15,7 @@ public class PaperFolder : PersonalTrait
             return TypesOfReaction.None;
 
         TypesOfReaction reaction = TypesOfReaction.None;
-        if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == PersonalityTrait.Otaku)
+        if (CheckIfAffectingPosition(theirPosition))
         {
             affectee.IncreaseProductivityBy(4f);
             reaction = TypesOfReaction.HeartfulFigures;
