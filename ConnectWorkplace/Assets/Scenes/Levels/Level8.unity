@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -157,11 +157,11 @@ RectTransform:
   - {fileID: 838590806}
   - {fileID: 277809107}
   m_Father: {fileID: 1067237519}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -189, y: 37}
+  m_AnchoredPosition: {x: -520, y: 37}
   m_SizeDelta: {x: 586.84, y: 570.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &107263449
@@ -299,7 +299,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.25
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2851921582974746920, guid: 16ffe8f22df3d4f4b90716975ce32ac4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 16ffe8f22df3d4f4b90716975ce32ac4, type: 3}
 --- !u!224 &155538073 stripped
 RectTransform:
@@ -566,7 +567,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.25
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2348893429012104319, guid: 52023a6b3da56c74992801f66d26762a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 52023a6b3da56c74992801f66d26762a, type: 3}
 --- !u!224 &311211071 stripped
 RectTransform:
@@ -1882,11 +1884,11 @@ RectTransform:
   - {fileID: 845165802}
   - {fileID: 1934909552}
   m_Father: {fileID: 1067237519}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -189, y: 37}
+  m_AnchoredPosition: {x: -243, y: 37}
   m_SizeDelta: {x: 445, y: 586.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1007207704
@@ -2018,9 +2020,9 @@ RectTransform:
   m_LocalScale: {x: 0.15035163, y: 0.15035163, z: 0.15035163}
   m_Children:
   - {fileID: 1243590369}
+  - {fileID: 1761997301}
   - {fileID: 1007207703}
   - {fileID: 107263448}
-  - {fileID: 1761997301}
   - {fileID: 176804299}
   - {fileID: 1326221183}
   m_Father: {fileID: 0}
@@ -2336,7 +2338,7 @@ PrefabInstance:
     - target: {fileID: 4281407988892931812, guid: 0270b3631a9d0d64c8a0628000860612,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4281407988892931813, guid: 0270b3631a9d0d64c8a0628000860612,
         type: 3}
@@ -3079,7 +3081,7 @@ PrefabInstance:
     - target: {fileID: 5732953777491734849, guid: 8eb5cf94b1a15f5448a387422006ea79,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5732953777491734849, guid: 8eb5cf94b1a15f5448a387422006ea79,
         type: 3}
@@ -3303,7 +3305,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.25
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2271644332617004615, guid: 0b841bc2ec402534b987fd161d1b51bf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b841bc2ec402534b987fd161d1b51bf, type: 3}
 --- !u!224 &1811369568 stripped
 RectTransform:
@@ -3553,7 +3556,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.25
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6065652919811642928, guid: d2e42a825909a884aa412658dd26b260, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2e42a825909a884aa412658dd26b260, type: 3}
 --- !u!224 &1871129175 stripped
 RectTransform:

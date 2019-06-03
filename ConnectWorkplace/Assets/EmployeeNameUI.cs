@@ -23,7 +23,7 @@ public class EmployeeNameUI : MonoBehaviour
         infoButton.onClick.RemoveAllListeners();
         infoButton.onClick.AddListener(ShowEmployeeInfo);
         employeeName.text = employee.gameObject.name;
-        //employeeName.color = employee.GetColor();
+        employeeName.color = employee.GetColor();
     }
 
     private void ShowEmployeeInfo()

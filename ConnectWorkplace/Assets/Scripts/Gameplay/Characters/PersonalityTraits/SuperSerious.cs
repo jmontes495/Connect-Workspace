@@ -18,10 +18,14 @@ public class SuperSerious : PersonalTrait
         if (affectee.GetTraitType() == TypeOfPersonality.SuperSerious)
             return employeeReaction;
 
-        affectee.ReduceProductivityBy(4f);
-        employeeReaction.reaction = TypesOfReaction.Stressful;
-        employeeReaction.value = -4f;
-        employeeReaction.employee = affectee.GetEmployee();
+        if (CheckIfAffectingPosition(theirPosition))
+        {
+            affectee.ReduceProductivityBy(4f);
+            employeeReaction.reaction = TypesOfReaction.Stressful;
+            employeeReaction.value = -4f;
+            employeeReaction.employee = affectee.GetEmployee();
+            Debug.LogError(gameObject.name + "stressed " + affectee.gameObject.name);
+        }
         return employeeReaction;
     }
 

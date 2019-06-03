@@ -8,7 +8,7 @@ public class BaseEmployee : MonoBehaviour
     [SerializeField]
     private Color idColor;
     
-    private float productivity; //Value between 1 and 10
+    private float productivity; //Value between 1 and 5
 
     private GridPosition currentPosition;
 
@@ -22,6 +22,8 @@ public class BaseEmployee : MonoBehaviour
         currentPosition.Initialize(initialFacing);
         if (GetComponent<StaticGridPosition>() != null)
             GetComponent<StaticGridPosition>().SetStaticPosition();
+
+        GetComponent<DraggablePiece>().SetColor(idColor);
     }
 
     public void ReduceProductivity(float productivityLost)

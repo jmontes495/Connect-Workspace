@@ -9,6 +9,8 @@ public class DraggablePiece : MonoBehaviour
 
     private bool isDragging;
 
+    private Color baseColor;
+
 	private int blockers;
 
 	private Renderer image;
@@ -33,9 +35,7 @@ public class DraggablePiece : MonoBehaviour
         employee = GetComponent<BaseEmployee>();
         myTransform = gameObject.transform;
         initialPosition = myTransform.position;
-		image = GetComponent<Renderer>();
-        image.material.color = Color.white;
-        pieceState = PieceState.Invalid;
+		pieceState = PieceState.Invalid;
     }
 
     private void Update()
@@ -106,11 +106,18 @@ public class DraggablePiece : MonoBehaviour
                 image.material.color = Color.yellow;
             else
             {
-                image.material.color = Color.white;
+                image.material.color = baseColor;
             }
 		}
 		else
 			image.material.color = Color.red;
 			
 	}
+
+    public void SetColor(Color idColor)
+    {
+        image = GetComponent<Renderer>();
+        baseColor = idColor;
+        image.material.color = baseColor;
+    }
 }

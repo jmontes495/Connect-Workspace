@@ -246,8 +246,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Patricia
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 735191ff3c8e04c4fb9727aeaffd2051, type: 2}
-  m_sharedMaterial: {fileID: 21432433747633494, guid: 735191ff3c8e04c4fb9727aeaffd2051,
+  m_fontAsset: {fileID: 11400000, guid: c0443139651566e4bbe3bf0fb1ff3897, type: 2}
+  m_sharedMaterial: {fileID: 21335864555242362, guid: c0443139651566e4bbe3bf0fb1ff3897,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 43.35
+  m_fontSize: 50
   m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 1
