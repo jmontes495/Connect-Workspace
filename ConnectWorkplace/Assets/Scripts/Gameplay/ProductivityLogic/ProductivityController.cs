@@ -46,6 +46,12 @@ public class ProductivityController : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine("WaitForStart");
+    }
+
+    private IEnumerator WaitForStart()
+    {
+        yield return new WaitForEndOfFrame();
         employees = GetComponentsInChildren<BaseEmployee>();
         reactionsPending = new List<EmployeeReaction>();
         reactionBubble = GetComponentInChildren<ReactionBubble>();
