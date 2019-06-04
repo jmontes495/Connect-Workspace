@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3592,6 +3592,26 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6065652919811642928, guid: d2e42a825909a884aa412658dd26b260, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2e42a825909a884aa412658dd26b260, type: 3}
+--- !u!1 &6065652920018225332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3541010359961717132, guid: d2e42a825909a884aa412658dd26b260,
+    type: 3}
+  m_PrefabInstance: {fileID: 6065652920018225331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6065652920018225333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6065652920018225332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9e06493e55d2c4a9c25f658209d94e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  row: 2
+  column: 1
 --- !u!224 &6443344243930364136 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1219856023623555514, guid: 02690d28b230c2f4aac6f3648e4974e2,
