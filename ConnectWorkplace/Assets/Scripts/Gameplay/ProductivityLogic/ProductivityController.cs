@@ -52,18 +52,31 @@ public class ProductivityController : MonoBehaviour
         HideReaction();
         CalculateProductivity();
         canEvaluate = false;
-        LevelEvaluation.CantEvaluate += () => { canEvaluate = true; };
-        LevelEvaluation.InvalidEvaluation += () => { canEvaluate = false; };
     }
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space) && !productivityHasBeenCalculated && canEvaluate)
+        if (Input.GetKeyUp(KeyCode.Space) && !productivityHasBeenCalculated)
         {
-            CalculateReactions();
-            productivityHasBeenCalculated = true;
-            StartCoroutine(ShowReactions());
+            CalculateCanEvaluate();
+            if (canEvaluate)
+            {
+                CalculateReactions();
+                productivityHasBeenCalculated = true;
+                StartCoroutine(ShowReactions());
+            }
         }
+    }
+
+    private void CalculateCanEvaluate()
+    {
+        canEvaluate = false;
+        foreach (BaseEmployee employee in employees)
+        {
+            if (employee.GetPosition().GetRow() == -1 || (employee.GetComponent<DraggablePiece>() != null && employee.GetComponent<DraggablePiece>().pieceState == DraggablePiece.PieceState.Invalid))
+                return;
+        }
+        canEvaluate = true;
     }
 
     private void CalculateProductivity()

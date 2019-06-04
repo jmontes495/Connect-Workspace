@@ -7,10 +7,6 @@ using UnityEngine.UI;
 
 public class LevelEvaluation : MonoBehaviour
 {
-    public delegate void EvaluationEvent();
-    public static event EvaluationEvent CantEvaluate;
-    public static event EvaluationEvent InvalidEvaluation;
-
     [SerializeField]
     private Button startDayButton;
 
@@ -59,13 +55,11 @@ public class LevelEvaluation : MonoBehaviour
             if (piece.pieceState == DraggablePiece.PieceState.Invalid)
             {
                 startDayButton.gameObject.SetActive(false);
-                InvalidEvaluation();
                 return;
             }
         }
         
         startDayButton.gameObject.SetActive(true);
-        CantEvaluate();
     }
 
     private void HideButton()
