@@ -25,6 +25,7 @@ public class EmployeeDetailInfo : MonoBehaviour
     {
         exitButton.onClick.RemoveAllListeners();
         exitButton.onClick.AddListener(Close);
+        ProductivityController.StartedProductivityCalculation += Close;
     }
     public void SetInfo(BaseEmployee theEmployee)
     {
