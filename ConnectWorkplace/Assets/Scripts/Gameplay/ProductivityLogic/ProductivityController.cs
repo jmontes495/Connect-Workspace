@@ -23,6 +23,7 @@ public class ProductivityController : MonoBehaviour
     
     private float currentProductivity;
     private float totalProductivity;
+    private bool canEvaluate;
 
     public float CurrentProductivity
     {
@@ -50,11 +51,14 @@ public class ProductivityController : MonoBehaviour
         reactionBubble = GetComponentInChildren<ReactionBubble>();
         HideReaction();
         CalculateProductivity();
+        canEvaluate = false;
+        LevelEvaluation.CantEvaluate += () => { canEvaluate = true; };
+        LevelEvaluation.InvalidEvaluation += () => { canEvaluate = false; };
     }
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space) && !productivityHasBeenCalculated)
+        if (Input.GetKeyUp(KeyCode.Space) && !productivityHasBeenCalculated && canEvaluate)
         {
             CalculateReactions();
             productivityHasBeenCalculated = true;

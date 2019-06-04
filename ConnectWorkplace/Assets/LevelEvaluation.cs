@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class LevelEvaluation : MonoBehaviour
 {
+    public delegate void EvaluationEvent();
+    public static event EvaluationEvent CantEvaluate;
+    public static event EvaluationEvent InvalidEvaluation;
+
     [SerializeField]
     private Button startDayButton;
 
@@ -55,12 +59,13 @@ public class LevelEvaluation : MonoBehaviour
             if (piece.pieceState == DraggablePiece.PieceState.Invalid)
             {
                 startDayButton.gameObject.SetActive(false);
+                InvalidEvaluation();
                 return;
             }
         }
-
-        Debug.LogWarning("reached here", gameObject);
+        
         startDayButton.gameObject.SetActive(true);
+        CantEvaluate();
     }
 
     private void HideButton()
@@ -70,7 +75,7 @@ public class LevelEvaluation : MonoBehaviour
 
     private void SetInitialProductivity()
     {
-        SetProductivityText("white");
+        SetProductivityText("black");
     }
 
     private void IncreasedProductivity()
