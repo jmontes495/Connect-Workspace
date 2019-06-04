@@ -4,6 +4,7 @@ public class PersonalTrait : MonoBehaviour
 {
     protected TypeOfPersonality traitType;
     private AnimatorManager animatorManager;
+    private CharacterEffectsManager characterEffectsManager;
 
     [SerializeField]
     protected BaseEmployee employee;
@@ -12,7 +13,16 @@ public class PersonalTrait : MonoBehaviour
     {
         employee = GetComponent<BaseEmployee>();
         animatorManager = GetComponent<AnimatorManager>();
-        animatorManager.Initialize(traitType);
+        characterEffectsManager = GetComponent<CharacterEffectsManager>();
+        Initialize();
+    }
+
+    private void Initialize()
+    {
+        if (animatorManager)
+            animatorManager.Initialize(traitType);
+        if (characterEffectsManager)
+            characterEffectsManager.Initialize(traitType);
     }
 
     public virtual EmployeeReaction AffectOther(PersonalTrait affectee, GridPosition theirPosition)

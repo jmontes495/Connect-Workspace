@@ -20,7 +20,6 @@ public class CharactersAnimationConfigurations: ScriptableObject
         {
             if (characterAnimations[i].typePersonality == personality)
             {
-                Debug.Log("personality : "+ personality + "characterAnimations[i].animationId: "+ characterAnimations[i].animationId);
                 return characterAnimations[i].animationId;
             }
         }

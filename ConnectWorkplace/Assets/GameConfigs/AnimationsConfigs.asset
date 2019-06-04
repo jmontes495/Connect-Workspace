@@ -33,7 +33,7 @@ MonoBehaviour:
     animationId: 9
   - personality: Metal
     typePersonality: 6
-    animationId: 2
+    animationId: 10
   - personality: Smoker
     typePersonality: 7
     animationId: 6
