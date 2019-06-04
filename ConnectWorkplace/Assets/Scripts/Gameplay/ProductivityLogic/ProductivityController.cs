@@ -58,6 +58,7 @@ public class ProductivityController : MonoBehaviour
         HideReaction();
         CalculateProductivity();
         canEvaluate = false;
+        productivityHasBeenCalculated = false;
     }
 
     void Update()
