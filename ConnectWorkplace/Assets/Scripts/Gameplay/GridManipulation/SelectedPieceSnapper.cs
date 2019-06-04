@@ -91,7 +91,11 @@ public class SelectedPieceSnapper : MonoBehaviour
     private void DetermineCurrentPieceFate()
     {
         if (currentPiece.IsDragging)
-			currentPiece.myTransform.position = currentSnapPosition;
+        {
+            if (currentPiece.myTransform == null)
+            { return; }
+            currentPiece.myTransform.position = currentSnapPosition;
+        }
         else if (!currentPiece.IsDragging && !snapping)
             currentPiece.CancelSelection();
         else if (!currentPiece.IsDragging && snapping)

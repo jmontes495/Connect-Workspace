@@ -20,9 +20,9 @@ public class Gamer : PersonalTrait
 
         if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.Otaku)
         {
-            affectee.IncreaseProductivityBy(2f);
+            affectee.IncreaseProductivityBy(4f);
             employeeReaction.reaction = TypesOfReaction.GoodGames;
-            employeeReaction.value = 2f;
+            employeeReaction.value = 4f;
             employeeReaction.employee = affectee.GetEmployee();
             Debug.LogError(gameObject.name + " talked about Death Stranding with " + affectee.gameObject.name);
         }

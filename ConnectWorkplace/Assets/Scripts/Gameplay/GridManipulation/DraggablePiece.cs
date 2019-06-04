@@ -63,12 +63,19 @@ public class DraggablePiece : MonoBehaviour
 
     public void ChangeInitialPosition(Vector3 newPosition, int row, int column)
     {
+        if (myTransform == null)
+            return;
+
         initialPosition = newPosition;
         employee.GetPosition().ChangePosition(row, column);
     }
 
     public void CancelSelection()
     {
+        if(myTransform == null)
+        {
+            return;
+        }
         myTransform.position = initialPosition;
     }
 

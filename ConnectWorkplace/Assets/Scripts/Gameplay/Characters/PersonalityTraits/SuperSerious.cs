@@ -20,9 +20,9 @@ public class SuperSerious : PersonalTrait
 
         if (CheckIfAffectingPosition(theirPosition))
         {
-            affectee.ReduceProductivityBy(4f);
+            affectee.ReduceProductivityBy(2f);
             employeeReaction.reaction = TypesOfReaction.Stressful;
-            employeeReaction.value = -4f;
+            employeeReaction.value = -2f;
             employeeReaction.employee = affectee.GetEmployee();
             Debug.LogError(gameObject.name + "stressed " + affectee.gameObject.name);
         }

@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -520, y: 37}
+  m_AnchoredPosition: {x: -549, y: 37}
   m_SizeDelta: {x: 586.84, y: 570.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &107263449
@@ -320,6 +320,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EmployeeListUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8588311163016208302, guid: 87752f4c5cf86044e96cecf40d1211a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3316211975316067951, guid: 87752f4c5cf86044e96cecf40d1211a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -383,7 +388,7 @@ PrefabInstance:
     - target: {fileID: 3316211975316067951, guid: 87752f4c5cf86044e96cecf40d1211a8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3316211975316067951, guid: 87752f4c5cf86044e96cecf40d1211a8,
         type: 3}
@@ -989,12 +994,12 @@ PrefabInstance:
     - target: {fileID: 1325404378421356050, guid: a3c5322f4a23f464c8b57096559c2ad9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 630
+      value: 798
       objectReference: {fileID: 0}
     - target: {fileID: 1325404378421356050, guid: a3c5322f4a23f464c8b57096559c2ad9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -413
+      value: -66
       objectReference: {fileID: 0}
     - target: {fileID: 1325404378421356050, guid: a3c5322f4a23f464c8b57096559c2ad9,
         type: 3}
@@ -2470,6 +2475,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.000030517578
       objectReference: {fileID: 0}
+    - target: {fileID: 4281407988892931818, guid: 0270b3631a9d0d64c8a0628000860612,
+        type: 3}
+      propertyPath: goalProductivity
+      value: 103
+      objectReference: {fileID: 0}
     - target: {fileID: 4281407987777062908, guid: 0270b3631a9d0d64c8a0628000860612,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -3096,7 +3106,7 @@ PrefabInstance:
     - target: {fileID: 5732953777491734849, guid: 8eb5cf94b1a15f5448a387422006ea79,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -565
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 5732953777491734849, guid: 8eb5cf94b1a15f5448a387422006ea79,
         type: 3}
