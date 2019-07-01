@@ -4884,7 +4884,6 @@ GameObject:
   - component: {fileID: 2251148337991211971}
   - component: {fileID: 2251148337991211970}
   - component: {fileID: 2251148337991211982}
-  - component: {fileID: 2851921582974746920}
   - component: {fileID: 206913128739843207}
   - component: {fileID: 3256913883220613737}
   - component: {fileID: 6228463118554915717}
@@ -4941,7 +4940,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03ac764c4f4d34b948d57c2f49f7d01b, type: 2}
+  - {fileID: 2100000, guid: fd9f9e71464e5e84d84ffaee48bc0ca6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5018,19 +5017,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idColor: {r: 1, g: 0, b: 0.03137255, a: 1}
   initialFacing: 0
---- !u!114 &2851921582974746920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2251148337991211974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f8547e0b5bd4b640ad7591570e932a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theColor: {r: 1, g: 0, b: 0.029556274, a: 0}
 --- !u!114 &206913128739843207
 MonoBehaviour:
   m_ObjectHideFlags: 0
