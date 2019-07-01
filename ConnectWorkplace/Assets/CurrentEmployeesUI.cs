@@ -17,6 +17,7 @@ public class CurrentEmployeesUI : MonoBehaviour
     void Start()
     {
         ProductivityController.StartedProductivityCalculation += HideUI;
+        ProductivityController.RestartedLevel += ShowUI;
 
         namesContainer = GetComponent<RectTransform>();
         employees = Object.FindObjectsOfType<BaseEmployee>();
@@ -43,8 +44,14 @@ public class CurrentEmployeesUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void ShowUI()
+    {
+        gameObject.SetActive(true);
+    }
+
     private void OnDestroy()
     {
         ProductivityController.StartedProductivityCalculation -= HideUI;
+        ProductivityController.RestartedLevel -= ShowUI;
     }
 }

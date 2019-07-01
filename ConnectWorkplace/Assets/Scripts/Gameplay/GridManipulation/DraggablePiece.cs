@@ -17,7 +17,11 @@ public class DraggablePiece : MonoBehaviour
 
 	public Transform myTransform;
 
+    private Vector3 lastPosition;
+
     private Vector3 initialPosition;
+
+    private Quaternion initialRotation;
 
     private BaseEmployee employee;
 
@@ -35,7 +39,10 @@ public class DraggablePiece : MonoBehaviour
         employee = GetComponent<BaseEmployee>();
         myTransform = gameObject.transform;
         initialPosition = myTransform.position;
+        initialRotation = myTransform.rotation;
+        lastPosition = initialPosition;
 		pieceState = PieceState.Invalid;
+        ProductivityController.RestartedLevel += ReturnToInitialPosition;
     }
 
     private void Update()
@@ -66,7 +73,7 @@ public class DraggablePiece : MonoBehaviour
         if (myTransform == null)
             return;
 
-        initialPosition = newPosition;
+        lastPosition = newPosition;
         employee.GetPosition().ChangePosition(row, column);
     }
 
@@ -76,7 +83,7 @@ public class DraggablePiece : MonoBehaviour
         {
             return;
         }
-        myTransform.position = initialPosition;
+        myTransform.position = lastPosition;
     }
 
 	private void OnTriggerStay(Collider other)
@@ -126,5 +133,16 @@ public class DraggablePiece : MonoBehaviour
         image = GetComponent<Renderer>();
         baseColor = idColor;
         image.material.color = baseColor;
+    }
+
+    private void ReturnToInitialPosition()
+    {
+        blockers = 0;
+        myTransform.position = initialPosition;
+        myTransform.rotation = initialRotation;
+        lastPosition = initialPosition;
+        image.material.color = baseColor;
+        isDragging = false;
+        pieceState = PieceState.Invalid;
     }
 }

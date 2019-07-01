@@ -30,6 +30,7 @@ public class LevelEvaluation : MonoBehaviour
         ProductivityController.ProductivityIncreased += IncreasedProductivity;
         ProductivityController.ProductivityIncreased += IncreasedProductivity;
         ProductivityController.FinishedProductivityCalculation += SetFinalResult;
+        ProductivityController.RestartedLevel += RestartScreen;
         DraggablePiece.SetPiece += EvaluateButton;
 
         pieces = Object.FindObjectsOfType<DraggablePiece>();
@@ -37,15 +38,6 @@ public class LevelEvaluation : MonoBehaviour
         productivityInfo.text = "";
         startDayButton.gameObject.SetActive(false);
         finalResult.transform.parent.gameObject.SetActive(false);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.N))
-        {
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
-        }
     }
 
     private void EvaluateButton()
@@ -100,6 +92,14 @@ public class LevelEvaluation : MonoBehaviour
         }
     }
 
+    private void RestartScreen()
+    {
+        productivityInfo.text = "";
+        startDayButton.gameObject.SetActive(false);
+        finalResult.transform.parent.gameObject.SetActive(false);
+        SetInitialProductivity();
+    }
+
     private void OnDestroy()
     {
         ProductivityController.InitialProductivityCalculated -= SetInitialProductivity;
@@ -108,6 +108,7 @@ public class LevelEvaluation : MonoBehaviour
         ProductivityController.ProductivityIncreased -= IncreasedProductivity;
         ProductivityController.ProductivityIncreased -= IncreasedProductivity;
         ProductivityController.FinishedProductivityCalculation -= SetFinalResult;
+        ProductivityController.RestartedLevel -= RestartScreen;
         DraggablePiece.SetPiece -= EvaluateButton;
     }
 }

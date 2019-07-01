@@ -10,6 +10,7 @@ public class ProductivityController : MonoBehaviour
     public static event ProductivityEvents ProductivityIncreased;
     public static event ProductivityEvents ProductivityDecreased;
     public static event ProductivityEvents FinishedProductivityCalculation;
+    public static event ProductivityEvents RestartedLevel;
 
     private BaseEmployee[] employees;
 
@@ -24,6 +25,7 @@ public class ProductivityController : MonoBehaviour
     private float currentProductivity;
     private float totalProductivity;
     private bool canEvaluate;
+    private bool finishedEvaluating;
 
     public float CurrentProductivity
     {
@@ -46,7 +48,7 @@ public class ProductivityController : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine("WaitForStart");
+        StartCoroutine(WaitForStart());
     }
 
     private IEnumerator WaitForStart()
@@ -73,8 +75,22 @@ public class ProductivityController : MonoBehaviour
                 StartCoroutine(ShowReactions());
             }
         }
+
+        if (Input.GetKeyUp(KeyCode.N) && productivityHasBeenCalculated)
+        {
+            RestartedLevel();
+            RestartValues();
+        }
     }
 
+    private void RestartValues()
+    {
+        productivityHasBeenCalculated = false;
+        finishedEvaluating = false;
+        canEvaluate = false;
+        CalculateProductivity();
+    }
+    
     private void CalculateCanEvaluate()
     {
         canEvaluate = false;
@@ -151,6 +167,7 @@ public class ProductivityController : MonoBehaviour
             HideReaction();
         }
 
+        finishedEvaluating = true;
         FinishedProductivityCalculation();
     }
 

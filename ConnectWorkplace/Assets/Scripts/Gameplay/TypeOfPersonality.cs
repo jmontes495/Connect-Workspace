@@ -28,7 +28,7 @@ public class PersonalityDescription
             case TypeOfPersonality.TheStretcher:
                 return "Stretcher: Yawns and extends the arms beyond the lateral limits of the desk, sometimes knocking things.";
             case TypeOfPersonality.Otaku:
-                return "Otaku: Makes other otakus sitting left or right happy and productive. Has figurines in the table.";
+                return "Otaku: Makes other otakus sitting in front, left or right happy and productive. Has figurines in the table.";
             case TypeOfPersonality.PaperFolder:
                 return "Paper Folder: The origami creations sitting on their table bring joy (thus productivity) to everybody beside and in front of them.";
             case TypeOfPersonality.Thirstee:

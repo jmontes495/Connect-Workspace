@@ -24,6 +24,8 @@ public class BaseEmployee : MonoBehaviour
             GetComponent<StaticGridPosition>().SetStaticPosition();
 
         GetComponent<DraggablePiece>().SetColor(idColor);
+
+        ProductivityController.RestartedLevel += RestartEmployee;
     }
 
     public void ReduceProductivity(float productivityLost)
@@ -49,5 +51,17 @@ public class BaseEmployee : MonoBehaviour
     public float GetProductivity()
     {
         return productivity;
+    }
+
+    private void RestartEmployee()
+    {
+        productivity = 10;
+        currentPosition = new GridPosition();
+        currentPosition.Initialize(initialFacing);
+    }
+
+    private void OnDestroy()
+    {
+        ProductivityController.RestartedLevel -= RestartEmployee;
     }
 }
