@@ -138,11 +138,17 @@ public class DraggablePiece : MonoBehaviour
     private void ReturnToInitialPosition()
     {
         blockers = 0;
+		myTransform = gameObject.transform;
         myTransform.position = initialPosition;
         myTransform.rotation = initialRotation;
         lastPosition = initialPosition;
         image.material.color = baseColor;
         isDragging = false;
         pieceState = PieceState.Invalid;
+    }
+
+	private void OnDestroy()
+    {
+		ProductivityController.RestartedLevel -= ReturnToInitialPosition;
     }
 }

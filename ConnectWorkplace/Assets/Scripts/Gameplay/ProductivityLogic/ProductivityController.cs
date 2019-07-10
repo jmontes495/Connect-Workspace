@@ -76,7 +76,7 @@ public class ProductivityController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.N) && productivityHasBeenCalculated)
+        if (Input.GetKeyUp(KeyCode.N))
         {
             RestartedLevel();
             RestartValues();
@@ -88,6 +88,7 @@ public class ProductivityController : MonoBehaviour
         productivityHasBeenCalculated = false;
         finishedEvaluating = false;
         canEvaluate = false;
+		employees = GetComponentsInChildren<BaseEmployee>();
         CalculateProductivity();
     }
     
