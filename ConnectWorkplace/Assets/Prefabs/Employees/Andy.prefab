@@ -4716,6 +4716,7 @@ GameObject:
   - component: {fileID: 1600114768056823459}
   - component: {fileID: 1128253741851566370}
   - component: {fileID: 4644134092559824344}
+  - component: {fileID: 1494975758104662087}
   m_Layer: 10
   m_Name: Andy
   m_TagString: Piece
@@ -4888,6 +4889,19 @@ MonoBehaviour:
   animationConfiguration: {fileID: 11400000, guid: a2cbe72a53298f1459620c7cb640081e,
     type: 2}
   mainAnimator: {fileID: 9173287864595094550}
+--- !u!114 &1494975758104662087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970872066408374592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d985cefb2aa3347b4397f26ee39746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  employee: {fileID: 0}
 --- !u!1001 &7799760041752749805
 PrefabInstance:
   m_ObjectHideFlags: 0
