@@ -17,6 +17,9 @@ public class LevelEvaluation : MonoBehaviour
     private TextMeshProUGUI finalResult;
 
     [SerializeField]
+    private GameObject speedPrompt;
+
+    [SerializeField]
     private float goalProductivity;
 
     private DraggablePiece[] pieces;
@@ -25,15 +28,15 @@ public class LevelEvaluation : MonoBehaviour
     void Start()
     {
         ProductivityController.InitialProductivityCalculated += SetInitialProductivity;
-        ProductivityController.StartedProductivityCalculation += HideButton;
+        ProductivityController.StartedProductivityCalculation += SetCalculationUI;
         ProductivityController.ProductivityDecreased += ReducedProductivity;
-        ProductivityController.ProductivityIncreased += IncreasedProductivity;
         ProductivityController.ProductivityIncreased += IncreasedProductivity;
         ProductivityController.FinishedProductivityCalculation += SetFinalResult;
         ProductivityController.RestartedLevel += RestartScreen;
         DraggablePiece.SetPiece += EvaluateButton;
 
         pieces = Object.FindObjectsOfType<DraggablePiece>();
+        speedPrompt.SetActive(false);
 
         productivityInfo.text = "";
         startDayButton.gameObject.SetActive(false);
@@ -54,8 +57,9 @@ public class LevelEvaluation : MonoBehaviour
         startDayButton.gameObject.SetActive(true);
     }
 
-    private void HideButton()
+    private void SetCalculationUI()
     {
+        speedPrompt.SetActive(true);
         startDayButton.gameObject.SetActive(false);
     }
 
@@ -81,6 +85,8 @@ public class LevelEvaluation : MonoBehaviour
 
     private void SetFinalResult()
     {
+        startDayButton.gameObject.SetActive(false);
+        SetProductivityText("black");
         finalResult.transform.parent.gameObject.SetActive(true);
         if (ProductivityController.instance.CurrentProductivity >= goalProductivity)
         {
@@ -94,6 +100,7 @@ public class LevelEvaluation : MonoBehaviour
 
     private void RestartScreen()
     {
+        startDayButton.gameObject.SetActive(false);
         productivityInfo.text = "";
         startDayButton.gameObject.SetActive(false);
         finalResult.transform.parent.gameObject.SetActive(false);
@@ -103,9 +110,8 @@ public class LevelEvaluation : MonoBehaviour
     private void OnDestroy()
     {
         ProductivityController.InitialProductivityCalculated -= SetInitialProductivity;
-        ProductivityController.StartedProductivityCalculation -= HideButton;
+        ProductivityController.StartedProductivityCalculation -= SetCalculationUI;
         ProductivityController.ProductivityDecreased -= ReducedProductivity;
-        ProductivityController.ProductivityIncreased -= IncreasedProductivity;
         ProductivityController.ProductivityIncreased -= IncreasedProductivity;
         ProductivityController.FinishedProductivityCalculation -= SetFinalResult;
         ProductivityController.RestartedLevel -= RestartScreen;

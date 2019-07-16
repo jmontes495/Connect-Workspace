@@ -43,4 +43,9 @@ public class EmployeeDetailInfo : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    private void OnDestroy()
+    {
+        ProductivityController.StartedProductivityCalculation -= Close;
+    }
 }

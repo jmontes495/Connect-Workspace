@@ -26,6 +26,7 @@ public class ProductivityController : MonoBehaviour
     private float totalProductivity;
     private bool canEvaluate;
     private bool finishedEvaluating;
+    private bool fastForward;
 
     public float CurrentProductivity
     {
@@ -81,6 +82,12 @@ public class ProductivityController : MonoBehaviour
             RestartedLevel();
             RestartValues();
         }
+
+        if (Input.GetKeyUp(KeyCode.S))
+            fastForward = false;
+        else if (Input.GetKeyDown(KeyCode.S))
+            fastForward = true;
+
     }
 
     private void RestartValues()
@@ -164,7 +171,7 @@ public class ProductivityController : MonoBehaviour
             else
                 ProductivityDecreased();
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(fastForward? 0.5f : 3f);
             HideReaction();
         }
 
