@@ -24,7 +24,7 @@ public class PaperFolder : PersonalTrait
             employeeReaction.reaction = TypesOfReaction.HeartfulFigures;
             employeeReaction.value = 4f;
             employeeReaction.employee = affectee.GetEmployee();
-            Debug.LogError(gameObject.name + " relaxed " + affectee.gameObject.name + " with the paper figurines");
+            SendDialogue(gameObject.name + " relaxed " + affectee.gameObject.name + " with the paper figurines");
         }
         return employeeReaction;
     }

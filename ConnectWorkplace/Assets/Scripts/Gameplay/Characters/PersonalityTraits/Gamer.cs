@@ -24,7 +24,7 @@ public class Gamer : PersonalTrait
             employeeReaction.reaction = TypesOfReaction.GoodGames;
             employeeReaction.value = 4f;
             employeeReaction.employee = affectee.GetEmployee();
-            Debug.LogError(gameObject.name + " talked about Death Stranding with " + affectee.gameObject.name);
+            SendDialogue(gameObject.name + " talked about Death Stranding with " + affectee.gameObject.name);
         }
         else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.SoundSensible)
         {
@@ -32,7 +32,7 @@ public class Gamer : PersonalTrait
             employeeReaction.reaction = TypesOfReaction.AnnoyingNoise;
             employeeReaction.value = -3f;
             employeeReaction.employee = affectee.GetEmployee();
-            Debug.LogError(gameObject.name + " with the noise annoyed " + affectee.gameObject.name);
+            SendDialogue(gameObject.name + " with the noise annoyed " + affectee.gameObject.name);
             
         }
 

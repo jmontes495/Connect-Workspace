@@ -39,7 +39,7 @@ public class Stretcher : PersonalTrait
                     employeeReaction.employee = affectee.GetEmployee();
                     break;
             }
-            Debug.LogError(gameObject.name + " knocked down the stuff of " + affectee.gameObject.name);
+            SendDialogue(gameObject.name + " knocked down the stuff of " + affectee.gameObject.name);
         }
         return employeeReaction;
 

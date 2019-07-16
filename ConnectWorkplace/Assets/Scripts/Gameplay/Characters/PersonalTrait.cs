@@ -9,11 +9,14 @@ public class PersonalTrait : MonoBehaviour
     [SerializeField]
     protected BaseEmployee employee;
 
+    private EventManager eventManager;
+
     protected virtual void Start()
     {
         employee = GetComponent<BaseEmployee>();
         animatorManager = GetComponent<AnimatorManager>();
         characterEffectsManager = GetComponent<CharacterEffectsManager>();
+        eventManager = FindObjectOfType<EventManager>();
         Initialize();
     }
 
@@ -111,6 +114,11 @@ public class PersonalTrait : MonoBehaviour
         }
 
         return false;
+    }
+
+    protected void SendDialogue(string text)
+    {
+        eventManager.DialogueMade(text);
     }
 
     public GridPosition GetPosition()

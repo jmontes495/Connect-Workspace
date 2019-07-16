@@ -24,7 +24,7 @@ public class SuperSerious : PersonalTrait
             employeeReaction.reaction = TypesOfReaction.Stressful;
             employeeReaction.value = -2f;
             employeeReaction.employee = affectee.GetEmployee();
-            Debug.LogError(gameObject.name + "stressed " + affectee.gameObject.name);
+            SendDialogue(gameObject.name + " stressed " + affectee.gameObject.name);
         }
         return employeeReaction;
     }

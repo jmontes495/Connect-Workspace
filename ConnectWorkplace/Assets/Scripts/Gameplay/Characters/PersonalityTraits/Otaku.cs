@@ -24,7 +24,7 @@ public class Otaku : PersonalTrait
             employeeReaction.reaction = TypesOfReaction.GoodAnime;
             employeeReaction.value = 5f;
             employeeReaction.employee = affectee.GetEmployee();
-            Debug.LogError(gameObject.name + " talked about anime with " + affectee.gameObject.name);
+            SendDialogue(gameObject.name + " talked about anime with " + affectee.gameObject.name);
         }
 
         return employeeReaction;

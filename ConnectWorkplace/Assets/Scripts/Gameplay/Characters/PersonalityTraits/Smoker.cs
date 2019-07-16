@@ -24,7 +24,7 @@ public class Smoker : PersonalTrait
             employeeReaction.reaction = TypesOfReaction.AnnoyingSmoke;
             employeeReaction.value = -6f;
             employeeReaction.employee = affectee.GetEmployee();
-            Debug.LogError(gameObject.name + " contaminated the air of " + affectee.gameObject.name);
+            SendDialogue(gameObject.name + " contaminated the air of " + affectee.gameObject.name);
         }
         return employeeReaction;
     }

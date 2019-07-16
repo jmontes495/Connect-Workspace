@@ -24,7 +24,7 @@ public class ReclinerLover : PersonalTrait
             employeeReaction.reaction = TypesOfReaction.ChairClash;
             employeeReaction.value = -3f;
             employeeReaction.employee = affectee.GetEmployee();
-            Debug.LogError(gameObject.name + " hit with the chair " + affectee.gameObject.name);
+            SendDialogue(gameObject.name + " hit with the chair " + affectee.gameObject.name);
         }
         return employeeReaction;
 
