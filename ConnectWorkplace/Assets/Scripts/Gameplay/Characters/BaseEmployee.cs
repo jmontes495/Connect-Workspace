@@ -57,7 +57,9 @@ public class BaseEmployee : MonoBehaviour
     {
         productivity = 10;
         currentPosition = new GridPosition();
-        currentPosition.Initialize(initialFacing);
+		currentPosition.Initialize(initialFacing);
+        if (GetComponent<StaticGridPosition>() != null)
+            GetComponent<StaticGridPosition>().SetStaticPosition();
     }
 
     private void OnDestroy()
