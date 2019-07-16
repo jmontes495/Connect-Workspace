@@ -24,7 +24,7 @@ public class MetalHead : PersonalTrait
             employeeReaction.reaction = TypesOfReaction.AnnoyingNoise;
             employeeReaction.value = -4f;
             employeeReaction.employee = affectee.GetEmployee();
-            Debug.LogError(gameObject.name + " with the music annoyed " + affectee.gameObject.name);
+            SendDialogue(gameObject.name + " with the music annoyed " + affectee.gameObject.name);
         }
         else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.Metalhead)
         {
@@ -32,7 +32,7 @@ public class MetalHead : PersonalTrait
             employeeReaction.reaction = TypesOfReaction.GoodMusic;
             employeeReaction.value = 5f;
             employeeReaction.employee = affectee.GetEmployee();
-            Debug.LogError(gameObject.name + " shared Ramnstein songs with " + affectee.gameObject.name);
+            SendDialogue(gameObject.name + " shared Ramnstein songs with " + affectee.gameObject.name);
         }
         return employeeReaction;
     }

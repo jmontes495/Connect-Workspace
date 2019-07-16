@@ -24,7 +24,7 @@ public class LongLegs : PersonalTrait
             employeeReaction.reaction = TypesOfReaction.GotKicked;
             employeeReaction.value = -3f;
             employeeReaction.employee = affectee.GetEmployee();
-            Debug.LogError(gameObject.name + " kicked " + affectee.gameObject.name);
+            SendDialogue(gameObject.name + " kicked " + affectee.gameObject.name);
         }
 
         return employeeReaction;

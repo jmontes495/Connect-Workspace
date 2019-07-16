@@ -24,7 +24,7 @@ public class Pyromaniac : PersonalTrait
             employeeReaction.reaction = TypesOfReaction.BurntOrigami;
             employeeReaction.value = -6f;
             employeeReaction.employee = affectee.GetEmployee();
-            Debug.LogError(gameObject.name + " almost burned the figurines of " + affectee.gameObject.name);
+            SendDialogue(gameObject.name + " almost burned the figurines of " + affectee.gameObject.name);
         }
         else if (CheckIfAffectingPosition(theirPosition) && affectee.GetTraitType() == TypeOfPersonality.Smoker)
         {
@@ -32,7 +32,7 @@ public class Pyromaniac : PersonalTrait
             employeeReaction.reaction = TypesOfReaction.LitCigarrette;
             employeeReaction.value = 3f;
             employeeReaction.employee = affectee.GetEmployee();
-            Debug.LogError(gameObject.name + " lit the cigarretes of " + affectee.gameObject.name);
+            SendDialogue(gameObject.name + " lit the cigarretes of " + affectee.gameObject.name);
         }
 
         return employeeReaction;

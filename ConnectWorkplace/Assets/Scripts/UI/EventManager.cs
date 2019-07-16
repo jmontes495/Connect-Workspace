@@ -5,6 +5,11 @@ using System.Collections.Generic;
 public class EventManager : MonoBehaviour
 {
 
+    [System.Serializable]
+    public class DialogueEvent : UnityEvent<string> {}
+
+    public DialogueEvent dialogueEvent;
+
     private Dictionary<string, UnityEvent> eventDictionary;
 
     private static EventManager eventManager;
@@ -71,5 +76,20 @@ public class EventManager : MonoBehaviour
         {
             thisEvent.Invoke();
         }
+    }
+
+    public void AddListener(UnityAction<string> method)
+    {
+        dialogueEvent.AddListener(method);
+    }
+
+    public void RemoveListener(UnityAction<string> method)
+    {
+        dialogueEvent.RemoveListener(method);
+    }
+
+    public void DialogueMade(string dialogue)
+    {
+        dialogueEvent.Invoke(dialogue);
     }
 }
