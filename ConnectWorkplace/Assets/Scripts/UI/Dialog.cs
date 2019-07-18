@@ -19,12 +19,20 @@ public class Dialog : MonoBehaviour
 
     public void Appear()
     {
-        tween = canvasGroup.DOFade(1.0f, 0.3f);
+        tween = canvasGroup.DOFade(1.0f, 0.5f);
     }
 
     public void Disappear()
     {
         tween = canvasGroup.DOFade(0.0f, 0.0f);
+    }
+
+    public void DestroyDialogue()
+    {
+        tween = DOVirtual.DelayedCall(5.0f, () =>
+        {
+            canvasGroup.DOFade(0f, 0.5f).OnComplete(() => Destroy(gameObject));
+        });
     }
 
     private void OnDestroy()
