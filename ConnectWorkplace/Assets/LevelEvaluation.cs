@@ -104,6 +104,7 @@ public class LevelEvaluation : MonoBehaviour
         productivityInfo.text = "";
         startDayButton.gameObject.SetActive(false);
         finalResult.transform.parent.gameObject.SetActive(false);
+        speedPrompt.SetActive(false);
         SetInitialProductivity();
     }
 

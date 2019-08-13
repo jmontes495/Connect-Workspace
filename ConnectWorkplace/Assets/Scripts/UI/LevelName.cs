@@ -9,4 +9,5 @@
     Level6 = 6,
     Level7 = 7,
     Level8 = 8,
+    Level9 = 9,
 }

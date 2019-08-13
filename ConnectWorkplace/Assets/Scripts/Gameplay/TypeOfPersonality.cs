@@ -28,13 +28,13 @@ public class PersonalityDescription
             case TypeOfPersonality.TheStretcher:
                 return "Stretcher: Yawns and extends the arms beyond the lateral limits of the desk, sometimes knocking things down. <color=red>(-3)</color>";
             case TypeOfPersonality.Otaku:
-                return "Otaku: Makes other otakus sitting in front, left or right happy and productive <color=green>(+5)</color>. Has figurines in the table that may be knocked down <color=red>(-3)</color>.";
+                return "Otaku: Makes other otakus sitting in front or beside productive <color=green>(+5)</color>. Has figurines in the table that may be knocked down <color=red>(-3)</color>.";
             case TypeOfPersonality.PaperFolder:
                 return "Paper Folder: The origami creations sitting on their table bring joy (thus productivity) to everybody beside and in front of them. <color=green>(+4)</color>";
             case TypeOfPersonality.Thirstee:
                 return "Thirstee: Always has a glass of water. Careful you don't knock it down. <color=red>(-3)</color>";
             case TypeOfPersonality.Metalhead:
-                return "Metalhead: Can bring productivity to metalheads beside them through headbanging <color=green>(+5)</color>. This will annoy sound sensitive people beside them <color=red>(-4)</color>.";
+                return "Metalhead: Makes metalheads beside them productive through headbanging <color=green>(+5)</color>. Will annoy sound sensitive people beside them <color=red>(-4)</color>.";
             case TypeOfPersonality.Smoker:
                 return "Smoker: Annoys everyone beside them who doesn't smoke. <color=red>(-6)</color>";
             case TypeOfPersonality.SoundSensible:
